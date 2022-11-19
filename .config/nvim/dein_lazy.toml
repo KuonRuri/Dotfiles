@@ -1,0 +1,55 @@
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+on_event = 'InsertEnter'
+depends = ['denops.vim']
+hook_source = '''
+	call ddc#custom#patch_global('ui', 'native')
+	call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
+	call ddc#custom#patch_global('sourceOptions', {
+	\	 '_': {
+	\		'matchers': ['matcher_head'],
+	\		'sorters': ['sorter_rank'] },
+	\ 	'nvim-lsp': {
+	\		'mark': 'lsp',
+	\		'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
+	\	'around': {
+	\		'mark': 'around' },
+	\ 	})
+	call ddc#custom#patch_global('sourcesParams', {
+	\    'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
+	\    })
+	call ddc#custom#patch_global('sourceParams', {
+	\	'nvim-lsp': {'maxSize': 500},
+	\	})
+	inoremap <silent><expr> <TAB>
+	\	pumvisible() ? '<C-n>' : '<TAB>'
+	inoremap <expr><S-TAB>	pumvisible() ? '<C-p>' : '<C-h>'
+	call ddc#enable()
+'''
+
+[[plugins]]
+repo = 'Shougo/ddc-around'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-native'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-source-nvim-lsp'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'previm/previm'
+on_cmd = ['PrevimOpen']
+hook_add = '''
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+'''
