@@ -25,6 +25,7 @@ hook_source = '''
 	\	pumvisible() ? '<C-n>' : '<TAB>'
 	inoremap <expr><S-TAB>	pumvisible() ? '<C-p>' : '<C-h>'
 	call ddc#enable()
+	let g:backspaceCompletion = true;
 '''
 
 [[plugins]]
@@ -51,5 +52,5 @@ on_source = 'ddc.vim'
 repo = 'previm/previm'
 on_cmd = ['PrevimOpen']
 hook_add = '''
-let g:previm_open_cmd = 'open -a Google\ Chrome'
+let g:previm_open_cmd = 'open -a Firefox'
 '''

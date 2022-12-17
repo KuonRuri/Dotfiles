@@ -68,7 +68,7 @@ function! s:ddu_filter_my_settings() abort
   nnoremap <buffer><silent> q
   \ <Cmd>close<CR>
 endfunction
-nnoremap <buffer><silent> <C-m>
+nnoremap <buffer><silent> <C-e>
 	\	<Cmd>call ddu#start({})<CR>
 '''
 
