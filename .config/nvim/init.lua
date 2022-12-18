@@ -53,7 +53,6 @@ opt.list = true
 opt.listchars = {tab = '>>-', trail = '-', nbsp = '+'}
 
 -- 行番号を表示
-opt.number = true
 opt.relativenumber = true;
 
 -- タブの大きさを変更
@@ -75,24 +74,6 @@ vim.keymap.set('n', 'Y', 'y$');
 vim.keymap.set('n', '+', '<C-a>')
 vim.keymap.set('n', '-', '<C-x>')
 
--- カラースキーマを設定
-vim.o.background = "dark"
-vim.cmd([[colorscheme gruvbox]])
-
--- クリップボードをwindowsと共有
-vim.g.clipboard = {
-	name = "win32yank-wsl",
-	copy = {
-		["+"] = "win32yank.exe -i --crlf",
-		["*"] = "win32yank.exe -i --crlf"
-	},
-	paste = {
-		["+"] = "win32yank.exe -o --crlf",
-		["*"] = "win32yank.exe -o --crlf"
-	},
-	cache_enable = 0,
-}
-
 local mason = require('mason')
 mason.setup({
 	ui = {
@@ -112,3 +93,8 @@ mason_lspconfig.setup_handlers({ function(server_name)
 		nvim_lsp[server_name].setup(opts)
 end })
 
+-- カラースキーマを設定
+-- syntax enable
+-- vim.cmd(autocmd vimenter * ++nested colorscheme gruvbox)
+-- vim.cmd([[colorscheme gruvbox]])
+-- vim.o.background = "dark"

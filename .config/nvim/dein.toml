@@ -2,7 +2,15 @@
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]
+repo = 'vim-denops/denops-helloworld.vim'
+
+[[plugins]]
 repo = 'morhetz/gruvbox'
+hook_add = '''
+autocmd vimenter * ++nested colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+set t_Co=256
+'''
 
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
