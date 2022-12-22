@@ -54,3 +54,4 @@ on_cmd = ['PrevimOpen']
 hook_add = '''
 let g:previm_open_cmd = 'open -a Firefox'
 '''
+

@@ -45,14 +45,18 @@ end
 local opt = vim.opt
 
 -- エンコーディング
-opt.encoding = 'utf-8'
+-- opt.encoding = 'utf-8'
 -- opt.scriptencoding = 'utf-8'
+
+opt.termguicolors = true
 
 -- 不可視文字を表示
 opt.list = true
 opt.listchars = {tab = '>>-', trail = '-', nbsp = '+'}
 
+
 -- 行番号を表示
+opt.number = true
 opt.relativenumber = true;
 
 -- タブの大きさを変更

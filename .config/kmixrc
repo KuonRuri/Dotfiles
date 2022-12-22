@@ -6,7 +6,7 @@ ConfigVersion=3
 MasterMixer=PulseAudio::Playback_Devices:1
 MasterMixerDevice=alsa_output.pci-0000_05_00.6.HiFi__hw_Generic__sink
 MixerIgnoreExpression=Modem
-Size=0,0
+Size=640,480
 Visible=false
 
 [Profiles]

@@ -2,11 +2,13 @@
 update_info=spectacle_shortcuts.upd:spectacle-migrate-shortcuts
 
 [ColorEffects:Disabled]
+ChangeSelectionColor[$d]
 Color[$d]
 ColorAmount[$d]
 ColorEffect[$d]
 ContrastAmount[$d]
 ContrastEffect[$d]
+Enable[$d]
 IntensityAmount[$d]
 IntensityEffect[$d]
 
@@ -1020,7 +1022,14 @@ Type=GESTURE
 [General]
 ColorScheme[$d]
 Name[$d]
+XftHintStyle[$d]
+XftSubPixel[$d]
+fixed[$d]
+font[$d]
+menuFont[$d]
 shadeSortColumn[$d]
+smallestReadableFont[$d]
+toolBarFont[$d]
 widgetStyle[$d]
 
 [Gestures]
@@ -1037,6 +1046,7 @@ Theme[$d]
 
 [KDE]
 ColorScheme[$d]
+LookAndFeelPackage[$d]
 contrast[$d]
 widgetStyle[$d]
 
@@ -1051,6 +1061,7 @@ Shortcut=
 [WM]
 activeBackground[$d]
 activeBlend[$d]
+activeFont[$d]
 activeForeground[$d]
 inactiveBackground[$d]
 inactiveBlend[$d]

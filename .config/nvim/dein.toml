@@ -9,7 +9,6 @@ repo = 'morhetz/gruvbox'
 hook_add = '''
 autocmd vimenter * ++nested colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'hard'
-set t_Co=256
 '''
 
 [[plugins]]
@@ -93,3 +92,12 @@ augroup AutoTermHeight
 	autocmd VimResized * let g:neoterm_size = winheight(0)/3
 augroup END
 '''
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build_on = '''
+./install -all
+'''
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
