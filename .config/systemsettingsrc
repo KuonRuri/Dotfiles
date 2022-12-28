@@ -1,7 +1,13 @@
+[KFileDialog Settings]
+Recent Files[$e]=yar1Q0.webp,file:$HOME/Pictures/yar1Q0.webp
+Recent URLs[$e]=file:$HOME/Pictures/
+detailViewIconSize=16
+
 [MainWindow]
 MenuBar=Disabled
 RestorePositionForNextInstance=false
-State=AAAA/wAAAAD9AAAAAAAAA/wAAAK8AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAAB4AAAAPvAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled
-eDP-1 XPosition 1920x1080=352
-eDP-1 YPosition 1920x1080=241
+eDP-1 Window-Maximized 1920x1080=true
+eDP-1 XPosition 1920x1080=0
+eDP-1 YPosition 1920x1080=29

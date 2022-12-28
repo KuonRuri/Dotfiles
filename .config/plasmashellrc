@@ -1,3 +1,8 @@
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME/slackwarewallpaper1.jpg,file:$HOME/Pictures/slackwarewallpaper1.jpg
+Recent URLs[$e]=file:$HOME/Pictures/
+detailViewIconSize=16
+
 [PlasmaViews][Panel 2][Defaults]
 thickness=44
 

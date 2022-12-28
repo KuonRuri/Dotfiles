@@ -1,0 +1,123 @@
+[ExifToolSearchBar Search Text Tool]
+CaseSensitive=0
+
+[FavoritesSearchBar Search Text Tool]
+CaseSensitive=0
+
+[ImageViewer Settings]
+AutoZoom=true
+Last Opened Directory=/home/kuonruri/Pictures
+OverExposureIndicator=false
+PreviewMode=128
+Show Thumbbar=true
+SplitterState=AAAA/wAAAAEAAAADAAABFgAABJUAAAGXAf////8AAAAAAQE=
+State=AAAA/wAAAAD9AAAAAAAAB4AAAAOCAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+Theme=Default
+ToolBarsMovable=Disabled
+UnderExposureIndicator=false
+eDP-1 Height 1920x1080=480
+eDP-1 Width 1920x1080=803
+eDP-1 Window-Maximized 1920x1080=true
+eDP-1 XPosition 1920x1080=1117
+eDP-1 YPosition 1920x1080=556
+
+[ImageViewer Thumbbar]
+State=AAAA/wAAAAD9AAAAAQAAAAIAAASTAAAAxPwBAAAAAfsAAAAeAGUAZABpAHQAbwByAF8AdABoAHUAbQBiAGIAYQByAQAAAAAAAASTAAAAcQEAAAMAAASTAAACvQAAAAQAAAAEAAAACAAAAAj8AAAAAA==
+ToolBarsMovable=Disabled
+
+[SearchBar Search Text Tool]
+CaseSensitive=0
+
+[ShowFoto Sidebar Left]
+ActiveTab=0
+Minimized=false
+RestoreSize=-1
+
+[ShowFoto Sidebar Right]
+ActiveTab=0
+DigikamProperties Expanded=true
+FileProperties Expanded=true
+ItemProperties Expanded=true
+Minimized=false
+PhotographProperties Expanded=true
+RestoreSize=-1
+VideoProperties Expanded=true
+
+[ShowFoto Sidebar Right][Color Properties Tab]
+Current ICC Item=
+Histogram Channel=0
+Histogram Scale=1
+ICC Level=2
+ImagePropertiesColors Tab=0
+
+[ShowFoto Sidebar Right][GPS Properties Tab]
+Sort Order=0
+Web GPS Locator=0
+
+[ShowFoto Sidebar Right][GPS Properties Tab][Map Widget]
+Backend=marble
+Center=geo:52,6
+GoogleMaps Map Type=ROADMAP
+GoogleMaps Show Map Type Control=true
+GoogleMaps Show Navigation Control=true
+GoogleMaps Show Scale Control=true
+Marble Map Theme=earth/srtm/srtm.dgml
+Marble Projection=spherical
+Marble Show Compass=false
+Marble Show Navigation=false
+Marble Show Overview Map=false
+Marble Show Scale Bar=false
+Marker Grouping Radius=1
+Mouse Mode=0
+Preview Grouped Items=true
+Preview Single Items=true
+Show Thumbnails=true
+Show numbers on items=true
+Sticky Mode State=false
+Thumbnail Grouping Radius=30
+Thumbnail Size=60
+Zoom=marble:900
+
+[ShowFoto Sidebar Right][Metadata Properties Tab]
+Current EXIF Item=
+Current ExifTool Item=
+Current IPTC Item=
+Current MAKERNOTE Item=
+Current XMP Item=
+EXIF Level=0
+EXIFTOOL Level=0
+IPTC Level=0
+ImagePropertiesMetaData Tab=0
+MAKERNOTE Level=0
+XMP Level=0
+
+[ShowfotoFolderView Sidebar]
+BookmarkItems=0
+BookmarkTopItemExpanded=true
+BookmarkTopUsualExpanded=true
+Bookmarks Visible=false
+Folder View Mode=0
+Folder View Type Mime=8
+Icon Size=32
+Last Folder=/home/kuonruri/Pictures/
+Splitter State=AAAA/wAAAAEAAAACAAAHgP////8B/////wEAAAACAA==
+
+[ShowfotoStackView Sidebar]
+Icon Size=32
+Splitter State=AAAA/wAAAAEAAAAC//////////8B/////wEAAAACAA==
+
+[resize Tool]
+Alpha=0.10000000149011612
+Amplitude=20
+Anisotropy=0.8999999761581421
+BTile=4
+Da=30
+Dl=0.800000011920929
+FastApprox=true
+GaussPrec=2
+Interpolation=0
+Iteration=3
+RestorePhotograph=false
+Sharpness=0.20000000298023224
+Sigma=1.5
+Tile=256

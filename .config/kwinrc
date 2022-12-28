@@ -8,3 +8,13 @@ OpenGLIsUnsafe=false
 Id_1=29846325-566d-4e2c-90cb-8778aa0e7bef
 Number=1
 Rows=1
+
+[Effect-PresentWindows]
+BorderActivateAll=9
+
+[TabBox]
+BorderActivate=9
+
+[org.kde.kdecoration2]
+library=org.kde.breeze
+theme=Breeze

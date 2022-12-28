@@ -1,0 +1,21 @@
+#History lists
+
+[shortcuts]
+".[path](null)"
+"Home[path]/home/kuonruri"
+"Desktop[path]/home/kuonruri/Desktop"
+"Collections[path]/home/kuonruri/.local/share/geeqie/collections"
+
+[path_list]
+"/home/kuonruri/Downloads"
+
+[bookmarks]
+".[path]/home/kuonruri/Downloads"
+"Home[path]/home/kuonruri"
+"Desktop[path]/home/kuonruri/Desktop"
+"Collections[path]/home/kuonruri/.local/share/geeqie/collections"
+
+[move_copy]
+"/home/kuonruri"
+
+#end

@@ -1,2 +1,14 @@
 [$Version]
 update_info=spectacle_clipboard.upd:clipboard-settings-change,spectacle_rememberregion.upd:spectacle-migrate-rememberregion
+
+[GuiConfig]
+window-position=50,0
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME/Pictures/Screenshot_20221226_104238.png,file:$HOME/Pictures/Screenshot_20221226_104238.png
+Recent URLs[$e]=file:$HOME/Pictures/
+detailViewIconSize=16
+
+[Save]
+lastSaveAsLocation=file:///home/kuonruri/Pictures/Screenshot_20221226_104238.png
+lastSaveLocation=file:///home/kuonruri/Pictures/Screenshot_20221226_104238.png

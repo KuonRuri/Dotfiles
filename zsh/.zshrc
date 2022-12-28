@@ -22,9 +22,11 @@ PROMPT='%#%n %d$ '
 export EDITOR=nvim
 export GTK_IN_MODULE=ibus
 export QT_IN_MODULE=ibus
+export XMODIFIERS=@im=ibus
 export XIM_PROGRAM="/usr/bin/ibus-daemon -xdrt"
 export DENO_INSTALL="/home/kuonruri/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="/home/kuonruri/.local/bin:$PATH"
 zstyle ':completion::complete:*' use-cache true
 source ~/.zplug/init.zsh
 zplug "chrissicool/zsh-256color"
@@ -38,3 +40,4 @@ fi
 zplug load --verbose
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /etc/profile.d/z.sh
