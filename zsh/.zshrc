@@ -1,3 +1,7 @@
+source /usr/share/zinit/zinit.zsh
+zinit light "chrissicool/zsh-256color"
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
 bindkey -e
 autoload -U compinit; compinit
 autoload -Uz colors ; colors
@@ -25,9 +29,5 @@ export DENO_INSTALL="/home/kuonruri/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="/home/kuonruri/.local/bin:$PATH"
 zstyle ':completion::complete:*' use-cache true
-zinit light "chrissicool/zsh-256color"
-zinit light "zsh-users/zsh-syntax-highlighting"
-zinit light "zsh-users/zsh-autosuggestions"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /etc/profile.d/z.sh
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
