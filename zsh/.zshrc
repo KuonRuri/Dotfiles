@@ -1,7 +1,17 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 source /usr/share/zinit/zinit.zsh
-zinit light "chrissicool/zsh-256color"
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+zinit light chrissicool/zsh-256color
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
+zinit light romkatv/powerlevel10k
 bindkey -e
 autoload -U compinit; compinit
 autoload -Uz colors ; colors
@@ -28,6 +38,10 @@ export XIM_PROGRAM="/usr/bin/ibus-daemon -xdrt"
 export DENO_INSTALL="/home/kuonruri/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="/home/kuonruri/.local/bin:$PATH"
+export VAGRANT_DEFAULT_PROVIDER="kvm"
 zstyle ':completion::complete:*' use-cache true
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
