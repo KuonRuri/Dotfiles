@@ -3,7 +3,7 @@ local dein_repo_dir = dein_dir .. '/repos/github.com/Shougo/dein.vim'
 
 if not string.match(vim.o.runtimepath, '/dein.vim') then
 	if vim.fn.isdirectory(dein_repo_dir) ~= 1 then
-		os.execute('git clone https://github.com/Shougo/dein.vim'..dein_repo_dir)
+		--os.execute('git clone https://github.com/Shougo/dein.vim'..dein_repo_dir)
 	end
 	vim.o.runtimepath = dein_repo_dir .. ',' .. vim.o.runtimepath
 end
