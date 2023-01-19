@@ -82,7 +82,7 @@ nnoremap <buffer><silent> <C-e>
 [[plugins]]
 repo = 'kassio/neoterm'
 hook_add = '''
-nnoremap <C-t> :Ttoggle<CR> <Cmd>wincmd j<CR> <Cmd>startinsert!<CR>
+nnoremap <C-t> :Ttoggle<CR><Cmd>wincmd j<CR><Cmd>startinsert!<CR>
 tnoremap <C-t> <C-\><C-n>:Tclose<CR>
 tnoremap jj <C-\><C-n>
 let g:neoterm_size = winheight(0)/3
