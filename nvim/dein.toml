@@ -5,10 +5,9 @@ repo = 'vim-denops/denops.vim'
 repo = 'vim-denops/denops-helloworld.vim'
 
 [[plugins]]
-repo = 'morhetz/gruvbox'
+repo = 'cocopon/iceberg.vim'
 hook_add = '''
-autocmd vimenter * ++nested colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'hard'
+colorscheme iceberg
 '''
 
 [[plugins]]
