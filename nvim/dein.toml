@@ -120,3 +120,8 @@ let g:vimsence_file_explorer_text = 'In NERDTree'
 let g:vimsence_file_explorer_details = 'Looking for files'
 '''
 
+[[plugins]]
+repo = 'glacambre/firenvim'
+hook_post_update = '''
+call firenvim#install(0)
+'''
