@@ -8,8 +8,11 @@ fi
 source /usr/share/zinit/zinit.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-source .zshplugins
 bindkey -e
+zinit light chrissicool/zsh-256color
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+zinit light romkatv/powerlevel10k
 autoload -U compinit; compinit
 autoload -Uz colors ; colors
 autoload -U colors ; colors ; zstyle ':completion:*' list-colors "${LS_COLORS}"
