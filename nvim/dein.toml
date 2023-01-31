@@ -32,6 +32,9 @@ repo = 'Shougo/ddu-source-file_rec'
 repo = 'Shougo/ddu-filter-matcher_substring'
 
 [[plugins]]
+repo = 'Shougo/ddu-commands.vim'
+
+[[plugins]]
 repo = 'Shougo/ddu.vim'
 hook_add = '''
 call ddu#custom#patch_global({
@@ -49,8 +52,8 @@ call ddu#custom#patch_global({
 	\	},
 	\   'uiParams': {
     \     'ff': {
-    \       'split': 'floating',
-	\		'startFilter': v:true,
+	\		'split': 'floating',
+	\		'startFilter': v:false,
     \     }
     \   },
     \ })
@@ -76,7 +79,7 @@ function! s:ddu_filter_my_settings() abort
   \ <Cmd>close<CR>
 endfunction
 nnoremap <buffer><silent> <C-l>
-	\	<Cmd>call ddu#start({})<CR>
+	\	<Cmd>Ddu<CR>
 '''
 
 [[plugins]]
