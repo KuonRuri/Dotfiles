@@ -50,6 +50,7 @@ call ddu#custom#patch_global({
 	\   'uiParams': {
     \     'ff': {
     \       'split': 'floating',
+	\		'startFilter': v:true,
     \     }
     \   },
     \ })
@@ -74,7 +75,7 @@ function! s:ddu_filter_my_settings() abort
   nnoremap <buffer><silent> q
   \ <Cmd>close<CR>
 endfunction
-nnoremap <buffer><silent> <C-e>
+nnoremap <buffer><silent> <C-l>
 	\	<Cmd>call ddu#start({})<CR>
 '''
 
@@ -115,3 +116,4 @@ let g:vimsence_editing_state = 'Working on: {}'
 let g:vimsence_file_explorer_text = 'In NERDTree'
 let g:vimsence_file_explorer_details = 'Looking for files'
 '''
+
