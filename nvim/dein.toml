@@ -109,26 +109,10 @@ repo = 'junegunn/fzf.vim'
 repo = 'wakatime/vim-wakatime'
 
 [[plugins]]
-repo = 'vimsence/vimsence'
-hook_add = '''
-let g:vimsence_client_id = '439476230543245312'
-let g:vimsence_small_text = 'NeoVim'
-let g:vimsence_small_image = 'neovim'
-let g:vimsence_editing_details = 'Editing: {}'
-let g:vimsence_editing_state = 'Working on: {}'
-let g:vimsence_file_explorer_text = 'In NERDTree'
-let g:vimsence_file_explorer_details = 'Looking for files'
-let g:vimsence_ignored_directories = '/tmp/firenvim'
-'''
+repo = 'Stoozy/vimcord'
 
 [[plugins]]
 repo = 'glacambre/firenvim'
 hook_post_update = '''
-let g:firenvim_config = {
-\ 'localSettings': {
-	\ '.*': {,
-		\ 'filename': '/tmp/firenvim/{hostname%32}_{pathname%32}_{selector%32}_{timestamp%32}.{extension}',
-	\ }
-\ }
 call firenvim#install(0)
 '''
