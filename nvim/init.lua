@@ -100,9 +100,3 @@ mason_lspconfig.setup_handlers({ function(server_name)
 	end
 		nvim_lsp[server_name].setup(opts)
 end })
-
--- カラースキーマを設定
--- syntax enable
--- vim.cmd(autocmd vimenter * ++nested colorscheme gruvbox)
--- vim.cmd([[colorscheme gruvbox]])
--- vim.o.background = "dark"
