@@ -60,6 +60,9 @@ opt.number = true
 opt.relativenumber = true;
 
 -- タブの大きさを変更
+opt.autoindent = true
+opt.shiftwidth = 4
+opt.expandtab = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 
