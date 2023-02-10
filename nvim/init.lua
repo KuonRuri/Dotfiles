@@ -44,29 +44,29 @@ end
 
 local opt = vim.opt
 
--- エンコーディング
+-- Encording
 -- opt.encoding = 'utf-8'
 -- opt.scriptencoding = 'utf-8'
 
 opt.termguicolors = true
 
--- 不可視文字を表示
+-- Show indent
 opt.list = true
 opt.listchars = {tab = '>>-', trail = '-', nbsp = '+'}
 
 
--- 行番号を表示
+-- Show number
 opt.number = true
 opt.relativenumber = true;
 
--- タブの大きさを変更
+-- Change indent width
 opt.autoindent = true
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 
--- キーマップ
+-- Keymap
 vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('i', 'っｊ', '<Esc>')
 vim.keymap.set('n', '<Down>', '<C-w>j')
