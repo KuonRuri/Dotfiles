@@ -1,5 +1,7 @@
 *
-!.config/nvim
-!zsh
-!.profile
-!README.md
+!*/
+!/nvim/**
+!/zsh/**
+!/README.md
+!/atcoder-cli-nodejs/cpp/**
+!/.gitignore
