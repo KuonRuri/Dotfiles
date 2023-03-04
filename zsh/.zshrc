@@ -39,8 +39,10 @@ export DENO_INSTALL="/home/kuonruri/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="/home/kuonruri/.local/bin:$PATH"
 export VAGRANT_DEFAULT_PROVIDER="kvm"
-export GLFW_IM_MODULE="ibus"
-export GTK_IM_MODULE=ibus
+export GLFW_IM_MODULE=ibus
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 zstyle ':completion::complete:*' use-cache true
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh

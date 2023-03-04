@@ -30,12 +30,12 @@ if vim.call('dein#load_state', dein_dir) == 1 then
 	vim.call('dein#save_state')
 end
 
--- plugin install check
+-- Plugin install check
 if (vim.fn['dein#check_install']() ~= 0) then
 	vim.fn['dein#install']()
 end
 
--- plugin remove check
+-- Plugin remove check
 local removed_plugins = vim.fn['dein#check_clean']()
 if vim.fn.len(removed_plugins) > 0 then
 	vim.fn.map(removed_plugins, "delete(v:val, 'rf')")
@@ -48,12 +48,12 @@ local opt = vim.opt
 -- opt.encoding = 'utf-8'
 -- opt.scriptencoding = 'utf-8'
 
+-- Use 24-bit colors
 opt.termguicolors = true
 
 -- Show indent
 opt.list = true
 opt.listchars = {tab = '>>-', trail = '-', nbsp = '+'}
-
 
 -- Show number
 opt.number = true
@@ -62,9 +62,11 @@ opt.relativenumber = true;
 -- Change indent width
 opt.autoindent = true
 opt.shiftwidth = 4
--- opt.expandtab = true
 opt.tabstop = 4
 opt.shiftwidth = 4
+
+-- Disable mouse
+opt.mouse =
 
 -- Keymap
 vim.keymap.set('i', 'jj', '<Esc>')
@@ -82,7 +84,7 @@ vim.keymap.set('n', '+', '<C-a>')
 vim.keymap.set('n', '-', '<C-x>')
 vim.keymap.set('n', '<Esc><Esc>', ':noh<CR>')
 
--- setup lsp
+-- Setup lsp
 local mason = require('mason')
 mason.setup({
 	ui = {
