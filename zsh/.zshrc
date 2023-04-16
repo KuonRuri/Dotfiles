@@ -9,8 +9,6 @@ source /usr/share/zinit/zinit.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source ~/dotfiles/zsh/.zsh_options
-bindkey -e
-zinit light chrissicool/zsh-256color
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light romkatv/powerlevel10k
@@ -20,7 +18,6 @@ autoload -U colors ; colors ; zstyle ':completion:*' list-colors "${LS_COLORS}"
 set -g default-terminal "screen-256color"
 alias h='fc -lt '%F %T' 1'
 zstyle ':completion:*:default' menu select=1
-PROMPT='%#%n %d$ '
 export EDITOR=nvim
 export XIM_PROGRAM="/usr/bin/ibus-daemon -xdrt"
 export DENO_INSTALL="/home/kuonruri/.deno"
@@ -31,9 +28,10 @@ export GLFW_IM_MODULE=ibus
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-export HISTFILE="~/dotfiles/zsh/.zsh_history"
-export SAVEHIST=100000
-export HISTSIZE=1000
+HISTFILE="~/dotfiles/zsh/.zsh_history"
+SAVEHIST=100000
+HISTSIZE=1000
+PROMPT='%#%n %d$ '
 zstyle ':completion::complete:*' use-cache true
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
