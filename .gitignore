@@ -1,7 +1,8 @@
 *
 !*/
 !/nvim/**
-!/zsh/**
+!/zsh/.zshrc
+!/zsh/.zprofile
 !/README.md
 !/atcoder-cli-nodejs/cpp/**
 !/.gitignore

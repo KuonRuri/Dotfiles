@@ -30,6 +30,7 @@ setopt share_history
 setopt hist_reduce_blanks
 setopt inc_append_history
 setopt hist_verify
+setopt hist_expand
 alias h='fc -lt '%F %T' 1'
 zstyle ':completion:*:default' menu select=1
 PROMPT='%#%n %d$ '
@@ -43,6 +44,9 @@ export GLFW_IM_MODULE=ibus
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+export HISTFILE="~/dotfiles/zsh/.zsh_history"
+export SAVEHIST=100000
+export HISTSIZE=1000
 zstyle ':completion::complete:*' use-cache true
 
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
