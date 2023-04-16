@@ -3,6 +3,7 @@
 !/nvim/**
 !/zsh/.zshrc
 !/zsh/.zprofile
+!/zsh/.zsh_options
 !/README.md
 !/atcoder-cli-nodejs/cpp/**
 !/.gitignore
