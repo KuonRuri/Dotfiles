@@ -28,7 +28,7 @@ export GLFW_IM_MODULE=ibus
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-HISTFILE="~/dotfiles/zsh/.zsh_history"
+HISTFILE=~/dotfiles/zsh/.zsh_history
 SAVEHIST=100000
 HISTSIZE=1000
 PROMPT='%#%n %d$ '

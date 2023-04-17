@@ -6,7 +6,7 @@ setopt auto_param_keys
 setopt print_exit_value
 setopt correct
 setopt correct_all
-setopt histignorealldups
+setopt hist_ignore_all_dups
 setopt share_history
 setopt hist_reduce_blanks
 setopt inc_append_history
