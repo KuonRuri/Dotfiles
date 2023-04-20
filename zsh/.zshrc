@@ -8,7 +8,7 @@ fi
 source /usr/share/zinit/zinit.zsh
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-source ~/dotfiles/zsh/.zsh_options
+source ~/Dotfiles/zsh/.zsh_options
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-autosuggestions
 zinit light romkatv/powerlevel10k
@@ -29,7 +29,7 @@ export GLFW_IM_MODULE=ibus
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-HISTFILE=~/dotfiles/zsh/.zsh_history
+HISTFILE=~/Dotfiles/zsh/.zsh_history
 SAVEHIST=100000
 HISTSIZE=1000
 PROMPT='%#%n %d$ '
