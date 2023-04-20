@@ -18,7 +18,7 @@ end
 --vim.api.nvim_set_var('dein#enable_notification', 1)
 
 if vim.call('dein#load_state', dein_dir) == 1 then
-	local dein_toml_dir = vim.env.HOME .. '/.config/nvim'
+	local dein_toml_dir = vim.env.HOME .. '/.config/nvim/Plugins'
 	local dein_toml = dein_toml_dir .. '/dein.toml'
 	local dein_toml_lazy = dein_toml_dir .. '/dein_lazy.toml'
 
@@ -74,22 +74,8 @@ opt.mouse = ""
 -- Float transparent
 opt.winblend = 5
 
--- Keymap
-vim.keymap.set('i', 'jj', '<Esc>')
-vim.keymap.set('i', 'っｊ', '<Esc>')
-vim.keymap.set('n', '<Down>', '<C-w>j')
-vim.keymap.set('n', '<Up>', '<C-w>k')
-vim.keymap.set('n', '<Left>', '<C-w>h')
-vim.keymap.set('n', '<Right>', '<C-w>l')
-vim.keymap.set('v', '<', '<gv')
-vim.keymap.set('v', '>', '>gv')
-vim.keymap.set('n', 'p', ']p')
-vim.keymap.set('n', 'P', ']P')
-vim.keymap.set('n', 'Y', 'y$')
-vim.keymap.set('n', '+', '<C-a>')
-vim.keymap.set('n', '-', '<C-x>')
-vim.keymap.set('n', '<Esc><Esc>', ':noh<CR>')
 
+require("keymaps")
 -- Setup lsp
 local mason = require('mason')
 mason.setup({
