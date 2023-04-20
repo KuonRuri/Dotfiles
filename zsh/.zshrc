@@ -17,6 +17,7 @@ autoload -Uz colors ; colors
 autoload -U colors ; colors ; zstyle ':completion:*' list-colors "${LS_COLORS}"
 set -g default-terminal "screen-256color"
 alias h='fc -lt '%F %T' 1'
+alias ls='ls -al'
 zstyle ':completion:*:default' menu select=1
 export EDITOR=nvim
 export XIM_PROGRAM="/usr/bin/ibus-daemon -xdrt"
