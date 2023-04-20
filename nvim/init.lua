@@ -65,8 +65,14 @@ opt.shiftwidth = 4
 opt.tabstop = 4
 opt.shiftwidth = 4
 
+-- Disable swap file
+opt.swapfile = false
+
 -- Disable mouse
-opt.mouse =
+opt.mouse = ""
+
+-- Float transparent
+opt.winblend = 5
 
 -- Keymap
 vim.keymap.set('i', 'jj', '<Esc>')
