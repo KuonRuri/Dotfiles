@@ -14,6 +14,6 @@ opt.swapfile = false
 opt.mouse = ""
 opt.winblend = 5
 opt.hlsearch = false
-opt.shell = "zsh"
+opt.shell = "fish"
 opt.splitbelow = true
 opt.splitright = true

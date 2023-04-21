@@ -4,6 +4,7 @@
 !/zsh/.zshrc
 !/zsh/.zprofile
 !/zsh/.zsh_options
+!/fish/config.fish
 !/README.md
 !/atcoder-cli-nodejs/cpp/**
 !/.gitignore
