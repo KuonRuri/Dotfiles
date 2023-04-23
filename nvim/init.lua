@@ -1,4 +1,4 @@
 require("Plugin")
-require("keymaps")
+require("Keymaps")
 require("Options")
 require("Lsp")
