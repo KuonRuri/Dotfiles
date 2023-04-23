@@ -1,4 +1,3 @@
--- Keymap
 vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('i', 'っｊ', '<Esc>')
 vim.keymap.set('n', '<Down>', '<C-w>j')
