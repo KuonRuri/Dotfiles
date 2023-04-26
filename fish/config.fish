@@ -3,9 +3,9 @@ if status is-interactive
 end
 
 abbr ls 'ls -al'
+abbr ga 'git add . && git commit && git rev-parse --abbrev-ref HEAD | xargs git push origin'
 abbr gaa 'git add .'
 abbr gc 'git commit'
 abbr gp 'git rev-parse --abbrev-ref HEAD | xargs git push origin'
-abbr ga 'git add . && git commit'
 abbr gs 'git status'
 abbr n 'nvim'
