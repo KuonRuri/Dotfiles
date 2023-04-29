@@ -97,12 +97,6 @@ augroup END
 '''
 
 [[plugins]]
-repo = 'junegunn/fzf'
-build_on = '''
-./install -all
-'''
-
-[[plugins]]
 repo = 'junegunn/fzf.vim'
 
 [[plugins]]
@@ -137,7 +131,8 @@ EOF
 
 [[plugins]]
 repo = 'stevearc/aerial.nvim'
-hook_add = '''
+on_cmd = ['AerialToggle']
+hook_post_source = '''
 lua << EOF
 require('aerial').setup({
 on_attach = function(bufnr)
