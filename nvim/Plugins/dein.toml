@@ -78,7 +78,7 @@ function! s:ddu_filter_my_settings() abort
   nnoremap <buffer><silent> q
   \ <Cmd>close<CR>
 endfunction
-nnoremap <buffer><silent> <C-l>
+nnoremap <buffer><silent> <C-k>
 	\	<Cmd>Ddu<CR>
 '''
 
@@ -119,3 +119,18 @@ call firenvim#install(0)
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_add = '''
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+ensure_installed = { "c", "lua", "vim", "cpp"},
+sync_install = true,
+auto_install = false,
+highlight = {
+	enable = true,
+	},
+}
+EOF
+'''
