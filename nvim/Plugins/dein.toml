@@ -131,8 +131,7 @@ EOF
 
 [[plugins]]
 repo = 'stevearc/aerial.nvim'
-on_cmd = ['AerialToggle']
-hook_post_source = '''
+hook_add = '''
 lua << EOF
 require('aerial').setup({
 on_attach = function(bufnr)
