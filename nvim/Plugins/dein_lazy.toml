@@ -46,3 +46,10 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = 'Shougo/ddc-source-nvim-lsp'
 on_source = 'ddc.vim'
+
+[[plugins]]
+repo = "previm/previm"
+on_command = "PrevimOpen"
+hook_post_source = '''
+let g:previm_open_cmd = "firefox"
+'''
