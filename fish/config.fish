@@ -14,9 +14,9 @@ abbr mkdir 'mkdir -p'
 abbr ps 'ps -A'
 abbr cp 'cp -r'
 abbr dp 'docker ps'
-abbr dr 'docker rm'
+abbr dr 'docker rm -r'
 abbr de 'docker exec'
-abbr ds 'docker start'
+abbr ds 'docker run'
 abbr dt 'docker stop'
 
 # Start X at login
