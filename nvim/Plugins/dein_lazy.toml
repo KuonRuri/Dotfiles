@@ -50,6 +50,7 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = "previm/previm"
 on_command = "PrevimOpen"
-hook_post_source = '''
+hook_add = '''
 let g:previm_open_cmd = "firefox"
+let g:previm_enable_realtime = 1
 '''

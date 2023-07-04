@@ -13,3 +13,15 @@ abbr n 'nvim'
 abbr mkdir 'mkdir -p'
 abbr ps 'ps -A'
 abbr cp 'cp -r'
+abbr dp 'docker ps'
+abbr dr 'docker rm'
+abbr de 'docker exec'
+abbr ds 'docker start'
+abbr dt 'docker stop'
+
+# Start X at login
+if status --is-login
+    if test -z "$DISPLAY" -a $XDG_VTNR = 1
+        exec startx -- -keeptty
+    end
+end

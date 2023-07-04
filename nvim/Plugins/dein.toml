@@ -83,20 +83,6 @@ nnoremap <buffer><silent> <C-k>
 '''
 
 [[plugins]]
-repo = 'kassio/neoterm'
-hook_add = '''
-nnoremap <C-t> :Ttoggle<CR><Cmd>wincmd j<CR><Cmd>startinsert!<CR>
-tnoremap <C-t> <C-\><C-n>:Tclose<CR>
-tnoremap jj <C-\><C-n>
-let g:neoterm_size = winheight(0)/3
-let g:neoterm_default_mod = 'belowright'
-augroup AutoTermHeight
-	autocmd!
-	autocmd VimResized * let g:neoterm_size = winheight(0)/3
-augroup END
-'''
-
-[[plugins]]
 repo = 'junegunn/fzf.vim'
 
 [[plugins]]
