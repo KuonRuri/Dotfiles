@@ -3,12 +3,8 @@
 !/zsh/.zshrc
 !/zsh/.zprofile
 !/zsh/.zsh_options
-!/fish/completion
-!/fish/conf.d
 !/fish/config.fish
 !/fish/fish_plugins
-!/fish/functions
-!/fish/themes
 !/README.md
 !/atcoder-cli-nodejs/cpp/**
 !/.gitignore
