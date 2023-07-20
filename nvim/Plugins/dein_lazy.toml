@@ -1,29 +1,30 @@
 [[plugins]]
 repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
-depends = ['denops.vim']
+depends = ['denops.vim', 'nvim-lspconfig', 'mason.nvim', 'mason-lspconfig.nvim', 'ddc-ui-pum', 'ddc-source-nvim-lsp']
 hook_post_source = '''
-	call ddc#custom#patch_global('ui', 'native')
+	call ddc#custom#patch_global('completionMenu', 'pum.vim')
+	call ddc#custom#patch_global('ui', 'pum')
 	call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
-	call ddc#custom#patch_global('sourceOptions', {
+	call ddc#custom#patch_global('sourceOptions', { 
 	\	 '_': {
 	\		'matchers': ['matcher_head'],
 	\		'sorters': ['sorter_rank'] },
 	\ 	'nvim-lsp': {
-	\		'mark': 'lsp',
-	\		'forceCompletionPattern': '\.\w*|:\w*|->\w*' },
+	\		'mark': 'L',
+	\		'forceCompletionPattern': '\.\w*|:\w*|->\w*', },
 	\	'around': {
-	\		'mark': 'around' },
+	\		'mark': 'A' },
 	\ 	})
-	call ddc#custom#patch_global('sourcesParams', {
-	\    'nvim-lsp': { 'kindLabels': { 'Class': 'c' } },
-	\    })
-	call ddc#custom#patch_global('sourceParams', {
-	\	'nvim-lsp': {'maxSize': 500},
-	\	})
 	inoremap <silent><expr> <TAB>
-	\	pumvisible() ? '<C-n>' : '<TAB>'
-	inoremap <expr><S-TAB>	pumvisible() ? '<C-p>' : '<C-h>'
+      \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+      \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+      \ '<TAB>' : ddc#map#manual_complete()
+	inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+	inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+	inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
+	inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+	inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
 	call ddc#enable()
 '''
 
@@ -40,16 +41,24 @@ repo = 'Shougo/ddc-sorter_rank'
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-ui-native'
+repo = 'Shougo/ddc-ui-pum'
 on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-nvim-lsp'
 on_source = 'ddc.vim'
+hook_source = '''
+lua << EOF
+local capabilities = require("ddc_nvim_lsp").make_client_capabilities()
+require("lspconfig").denols.setup({
+  capabilities = capabilities,
+})
+EOF
+'''
 
 [[plugins]]
-repo = "previm/previm"
-on_command = "PrevimOpen"
+repo = 'previm/previm'
+on_command = 'PrevimOpen'
 hook_add = '''
 let g:previm_open_cmd = "firefox"
 let g:previm_enable_realtime = 1
