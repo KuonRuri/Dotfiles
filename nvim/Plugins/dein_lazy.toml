@@ -3,22 +3,35 @@ repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
 depends = ['denops.vim', 'nvim-lspconfig', 'mason.nvim', 'mason-lspconfig.nvim', 'ddc-ui-pum', 'ddc-source-nvim-lsp']
 hook_post_source = '''
-	call ddc#custom#patch_global('ui', 'pum')
-	call ddc#custom#patch_global('sources', ['nvim-lsp', 'around'])
-	call ddc#custom#patch_global('sourceOptions', { 
-	\	 '_': {
-	\		'matchers': ['matcher_head'],
-	\		'sorters': ['sorter_rank'] },
-	\ 	'nvim-lsp': {
-	\		'mark': 'L',
-	\		'forceCompletionPattern': '\.\w*|:\w*|->\w*', },
-	\	'around': {
-	\		'mark': 'A' },
-	\ 	})
+	call ddc#custom#patch_global({
+	\	'ui': 'pum',
+	\	'sources': ['nvim-lsp', 'around'],
+	\	'sourceOptions': { 
+	\		'_': {
+	\			'matchers': ['matcher_head'],
+	\			'sorters': ['sorter_rank']
+	\		},
+	\		'nvim-lsp': {
+	\			'mark': 'L',
+	\			'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+	\		},
+	\		'around': {
+	\			'mark': 'A'
+	\		},
+	\	},
+	\	'autoCompleteEvents': [
+	\		'InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged',
+	\	],
+	\	'cmdlineSources': {
+	\		':': ['cmdline', 'cmdline-history', 'around']
+	\	},
+	\})
+	" Enable command line completion for the buffer
+	call ddc#enable_cmdline_completion()
 	inoremap <silent><expr> <TAB>
-      \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
-      \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-      \ '<TAB>' : ddc#map#manual_complete()
+	\ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+	\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+	\ '<TAB>' : ddc#map#manual_complete()
 	inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
 	inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
 	inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
@@ -56,9 +69,39 @@ EOF
 '''
 
 [[plugins]]
+repo = 'Shougo/ddc-source-cmdline'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-source-cmdline-history'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-source-around'
+on_source = 'ddc.vim'
+
+[[plugins]]
 repo = 'previm/previm'
 on_command = 'PrevimOpen'
 hook_add = '''
 let g:previm_open_cmd = "firefox"
 let g:previm_enable_realtime = 1
+'''
+
+[[plugins]]
+repo = 'matsui54/denops-popup-preview.vim'
+on_event = "InsertEnter"
+hook_source = '''
+call popup_preview#enable()
+'''
+
+[[plugins]]
+repo = 'ray-x/lsp_signature.nvim'
+on_event = "InsertEnter"
+hook_source = '''
+lua << EOF
+local cfg = {
+}
+require "lsp_signature".setup(cfg)
+EOF
 '''
