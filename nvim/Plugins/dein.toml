@@ -105,7 +105,7 @@ repo = 'nvim-treesitter/nvim-treesitter'
 hook_add = '''
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-ensure_installed = { "c", "lua", "vim", "cpp"},
+ensure_installed = { "c", "lua", "vim", "cpp", "python"},
 sync_install = true,
 auto_install = false,
 highlight = {
