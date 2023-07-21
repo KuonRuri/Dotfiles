@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-on_event = 'InsertEnter'
-depends = ['denops.vim', 'nvim-lspconfig', 'mason.nvim', 'mason-lspconfig.nvim', 'ddc-ui-pum', 'ddc-source-nvim-lsp']
+on_event = ['InsertEnter', 'CmdlineEnter']
+depends = ['denops.vim', 'nvim-lspconfig', 'mason.nvim', 'mason-lspconfig.nvim', 'ddc-ui-pum', 'ddc-source-nvim-lsp', 'pum.vim']
 hook_post_source = '''
 	call ddc#custom#patch_global({
 	\	'ui': 'pum',
@@ -26,17 +26,36 @@ hook_post_source = '''
 	\		':': ['cmdline', 'cmdline-history', 'around']
 	\	},
 	\})
-	" Enable command line completion for the buffer
-	call ddc#enable_cmdline_completion()
 	inoremap <silent><expr> <TAB>
-	\ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
-	\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-	\ '<TAB>' : ddc#map#manual_complete()
+		\ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
+		\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+		\ '<TAB>' : ddc#map#manual_complete()
 	inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
 	inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
 	inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
 	inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
 	inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+
+	nnoremap :       <Cmd>call CommandlinePre()<CR>:
+	function! CommandlinePre() abort
+		cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
+		cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
+		cnoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
+		cnoremap <C-p>   <Cmd>call pum#map#insert_relative(-1)<CR>
+		cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+		cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+		autocmd User DDCCmdlineLeave ++once call CommandlinePost()
+		" Enable command line completion for the buffer
+		call ddc#enable_cmdline_completion()
+	endfunction
+	function! CommandlinePost() abort
+		silent! cunmap <Tab>
+		silent! cunmap <S-Tab>
+		silent! cunmap <C-n>
+		silent! cunmap <C-p>
+		silent! cunmap <C-y>
+		silent! cunmap <C-e>
+	endfunction
 	call ddc#enable()
 '''
 
@@ -81,6 +100,14 @@ repo = 'Shougo/ddc-source-around'
 on_source = 'ddc.vim'
 
 [[plugins]]
+repo = 'Shougo/neco-vim'
+on_source = 'ddc.vim'
+
+[[plugins]]
+reop = 'gelguy/wilder.nvim'
+on_source = 'ddc.vim'
+
+[[plugins]]
 repo = 'previm/previm'
 on_command = 'PrevimOpen'
 hook_add = '''
@@ -89,19 +116,5 @@ let g:previm_enable_realtime = 1
 '''
 
 [[plugins]]
-repo = 'matsui54/denops-popup-preview.vim'
-on_event = "InsertEnter"
-hook_source = '''
-call popup_preview#enable()
-'''
-
-[[plugins]]
-repo = 'ray-x/lsp_signature.nvim'
-on_event = "InsertEnter"
-hook_source = '''
-lua << EOF
-local cfg = {
-}
-require "lsp_signature".setup(cfg)
-EOF
-'''
+repo = 'machakann/vim-sandwich'
+rn_event = 'InsertEnter'

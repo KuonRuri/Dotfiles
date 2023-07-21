@@ -1,11 +1,10 @@
 -- 自動で dein#recache_runtimepath() する
-vim.api.nvim_set_var('dein#auto_recache', 1)
+--vim.api.nvim_set_var('dein#auto_recache', 1)
 -- neovimのリモートプラグインを遅延読み込み
-vim.api.nvim_set_var('dein#lazy_rplugins', 1)
-vim.api.nvim_set_var('dein#enable_notification', 1)
-vim.api.nvim_set_var('dein#install_max_processes', 16)
-vim.api.nvim_set_var('dein#install_message_type', 'none')
-vim.api.nvim_set_var('dein#enable_notification', 1)
+--vim.api.nvim_set_var('dein#lazy_rplugins', 1)
+--vim.api.nvim_set_var('dein#enable_notification', 1)
+--vim.api.nvim_set_var('dein#install_max_processes', 16)
+--vim.api.nvim_set_var('dein#install_message_type', 'none')
 
 local dein_dir = vim.env.HOME .. '/.cache/dein'
 local dein_repo_dir = dein_dir .. '/repos/github.com/Shougo/dein.vim'
