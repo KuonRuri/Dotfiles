@@ -111,9 +111,6 @@ repo = 'junegunn/fzf.vim'
 repo = 'wakatime/vim-wakatime'
 
 [[plugins]]
-repo = 'Stoozy/vimcord'
-
-[[plugins]]
 repo = 'glacambre/firenvim'
 hook_post_update = '''
 call firenvim#install(0)
