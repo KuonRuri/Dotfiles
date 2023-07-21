@@ -114,3 +114,7 @@ let g:previm_enable_realtime = 1
 [[plugins]]
 repo = 'machakann/vim-sandwich'
 rn_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'dstein64/vim-startuptime'
+on_command = 'StartupTime'
