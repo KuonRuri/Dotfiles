@@ -37,6 +37,7 @@ hook_post_source = '''
 	inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
 
 	nnoremap :       <Cmd>call CommandlinePre()<CR>:
+	call ddc#enable_cmdline_completion()
 	function! CommandlinePre() abort
 		cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
 		cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
@@ -46,7 +47,7 @@ hook_post_source = '''
 		cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
 		autocmd User DDCCmdlineLeave ++once call CommandlinePost()
 		" Enable command line completion for the buffer
-		call ddc#enable_cmdline_completion()
+
 	endfunction
 	function! CommandlinePost() abort
 		silent! cunmap <Tab>
