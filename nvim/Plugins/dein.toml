@@ -155,19 +155,3 @@ require("toggleterm").setup{
 }
 EOF
 '''
-
-[[plugins]]
-repo = 'matsui54/denops-popup-preview.vim'
-hook_add = '''
-call popup_preview#enable()
-'''
-
-[[plugins]]
-repo = 'ray-x/lsp_signature.nvim'
-hook_add = '''
-lua << EOF
-local cfg = {
-}
-require "lsp_signature".setup(cfg)
-EOF
-'''

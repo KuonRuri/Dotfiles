@@ -118,3 +118,21 @@ on_event = 'InsertEnter'
 [[plugins]]
 repo = 'dstein64/vim-startuptime'
 on_command = 'StartupTime'
+
+[[plugins]]
+repo = 'matsui54/denops-popup-preview.vim'
+on_event = 'InsertEnter'
+hook_add = '''
+call popup_preview#enable()
+'''
+
+[[plugins]]
+repo = 'ray-x/lsp_signature.nvim'
+on_event = 'InsertEnter'
+hook_add = '''
+lua << EOF
+local cfg = {
+}
+require "lsp_signature".setup(cfg)
+EOF
+'''
