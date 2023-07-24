@@ -19,6 +19,15 @@ abbr de 'docker exec'
 abbr ds 'docker run'
 abbr dt 'docker stop'
 
+function fish_hybrid_key_bindings --description \
+"Vi-style bindings that inherit emacs-style bindings in all modes"
+    for mode in default insert visual
+        fish_default_key_bindings -M $mode
+    end
+    fish_vi_key_bindings --no-erase
+end
+set -g fish_key_bindings fish_hybrid_key_bindings
+
 # Start X at login
 if status --is-login
     if test -z "$DISPLAY" -a $XDG_VTNR = 1
