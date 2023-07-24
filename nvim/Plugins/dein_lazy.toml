@@ -122,14 +122,14 @@ on_command = 'StartupTime'
 [[plugins]]
 repo = 'matsui54/denops-popup-preview.vim'
 on_event = 'InsertEnter'
-hook_add = '''
+hook_post_source = '''
 call popup_preview#enable()
 '''
 
 [[plugins]]
 repo = 'ray-x/lsp_signature.nvim'
 on_event = 'InsertEnter'
-hook_add = '''
+hook_post_source = '''
 lua << EOF
 local cfg = {
 }
