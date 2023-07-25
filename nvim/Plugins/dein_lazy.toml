@@ -5,7 +5,7 @@ depends = ['denops.vim', 'nvim-lspconfig', 'mason.nvim', 'mason-lspconfig.nvim',
 hook_post_source = '''
 	call ddc#custom#patch_global({
 	\	'ui': 'pum',
-	\	'sources': ['nvim-lsp', 'around'],
+	\	'sources': ['nvim-lsp', 'skkeleton', 'around'],
 	\	'sourceOptions': { 
 	\		'_': {
 	\			'matchers': ['matcher_head'],
@@ -17,6 +17,11 @@ hook_post_source = '''
 	\		},
 	\		'around': {
 	\			'mark': 'A'
+	\		},
+	\		'skkeleton': {
+	\			'mark': 'S',
+	\			'matchers': ['skkeleton'],
+	\			'sorters':[]
 	\		},
 	\	},
 	\	'autoCompleteEvents': [
@@ -104,6 +109,17 @@ repo = 'Shougo/neco-vim'
 on_source = 'ddc.vim'
 
 [[plugins]]
+repo = 'vim-skk/skkeleton'
+on_source = 'ddc.vim'
+hook_post_source = '''
+imap <C-j> <Plug>(skkeleton-toggle)
+cmap <C-j> <Plug>(skkeleton-toggle)
+call skkeleton#config({
+\	'globalJisyo': '/usr/share/skk/SKK-JISYO.L'
+\})
+'''
+
+[[plugins]]
 repo = 'previm/previm'
 on_command = 'PrevimOpen'
 hook_add = '''
@@ -136,3 +152,4 @@ local cfg = {
 require "lsp_signature".setup(cfg)
 EOF
 '''
+

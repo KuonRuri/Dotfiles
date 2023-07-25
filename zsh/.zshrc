@@ -25,10 +25,9 @@ export DENO_INSTALL="/home/kuonruri/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="/home/kuonruri/.local/bin:$PATH"
 export VAGRANT_DEFAULT_PROVIDER="kvm"
-export GLFW_IM_MODULE=ibus
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
 HISTFILE=~/Dotfiles/zsh/.zsh_history
 SAVEHIST=100000
 HISTSIZE=1000
