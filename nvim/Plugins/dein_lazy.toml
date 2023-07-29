@@ -155,7 +155,7 @@ call popup_preview#enable()
 [[plugins]]
 repo = 'ray-x/lsp_signature.nvim'
 on_event = 'InsertEnter'
-hook_post_source = '''
+hook_done_update = '''
 lua << EOF
 local cfg = {
 }
