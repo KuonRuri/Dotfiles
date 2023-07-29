@@ -14,7 +14,7 @@ hook_post_source = '''
 	\		'nvim-lsp': {
 	\			'mark': 'L',
 	\			'forceCompletionPattern': '\.\w*|:\w*|->\w*',
-	\		},
+	\		}, 
 	\		'around': {
 	\			'mark': 'A'
 	\		},
@@ -115,8 +115,8 @@ hook_post_source = '''
 imap <C-j> <Plug>(skkeleton-toggle)
 cmap <C-j> <Plug>(skkeleton-toggle)
 call skkeleton#config({
-\	'globalJisyo': '/usr/share/skk/SKK-JISYO.L'
-\	'userJisyo': '~/.local/share/fcitx5/skk/user.dict"
+\	'globalJisyo': '/usr/share/skk/SKK-JISYO.L',
+\	'userJisyo': '~/.local/share/fcitx5/skk/user.dict'
 \})
 '''
 

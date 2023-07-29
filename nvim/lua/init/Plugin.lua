@@ -15,6 +15,8 @@ if (vim.fn['dein#load_state'](dein_dir) == 1) then
   local rc_dir = vim.fn.expand('~/.config/nvim')
   local toml_nomal = rc_dir..'/Plugins/dein.toml'
   local toml_lazy = rc_dir..'/Plugins/dein_lazy.toml'
+  --vim.cmd('leg g:dein#inline_vimrcs = ["lua/init/Keymaps", "lua/init/Options"]')
+  vim.cmd("let g:dein#inline_vimrcs = ['~/.config/nvim/lua/init/Options.lua', '~/.config/nvim/lua/init/Keymaps.lua']")
   vim.fn['dein#begin'](dein_dir)
   vim.fn['dein#load_toml'](toml_nomal, { lazy = 0 })
   vim.fn['dein#load_toml'](toml_lazy, { lazy = 1 })
