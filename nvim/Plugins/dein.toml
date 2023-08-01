@@ -33,9 +33,6 @@ EOF
 repo = 'junegunn/fzf.vim'
 
 [[plugins]]
-repo = 'wakatime/vim-wakatime'
-
-[[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
 hook_add = '''
 lua << EOF

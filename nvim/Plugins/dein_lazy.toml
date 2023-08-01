@@ -126,7 +126,8 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-on_source = ['ddc.vim', 'denops-popup_preview']
+on_source = ['ddc.vim', 'denops-popup-preview.vim']
+
 
 [[plugins]]
 repo = 'previm/previm'
@@ -146,7 +147,6 @@ on_command = 'StartupTime'
 
 [[plugins]]
 repo = 'matsui54/denops-popup-preview.vim'
-depends = 'denops,vim'
 on_event = 'InsertEnter'
 hook_post_source = '''
 call popup_preview#enable()
@@ -155,7 +155,7 @@ call popup_preview#enable()
 [[plugins]]
 repo = 'ray-x/lsp_signature.nvim'
 on_event = 'InsertEnter'
-hook_done_update = '''
+hook_post_source = '''
 lua << EOF
 local cfg = {
 }
@@ -189,3 +189,7 @@ end
 })
 EOF
 '''
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+on_event = 'InsertEnter'
