@@ -10,3 +10,4 @@
 !/atcoder-cli-nodejs/cpp/**
 !/.gitignore
 !/GDB/**
+!/kitty/**
