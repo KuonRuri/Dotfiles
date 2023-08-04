@@ -1,6 +1,10 @@
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
+autocmd Colorscheme * highlight Normal guibg=NONE ctermbg=NONE
+autocmd Colorscheme * highlight NonText guibg=NONE ctermbg=NONE
+autocmd Colorscheme * highlight LineNr guibg=NONE ctermbg=NONE
+autocmd Colorscheme * highlight EndOfBuffer guibg=NONE ctermbg=NONE
 colorscheme iceberg
 '''
 
