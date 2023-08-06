@@ -1,2 +1,2 @@
 #!/bin/sh
-exec gdb -q -ex init-gef "$@"
+exec gdb -q -ex init-gef-bata "$@"

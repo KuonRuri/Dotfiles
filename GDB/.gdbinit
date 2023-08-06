@@ -13,9 +13,16 @@ document init-pwndbg
 Initializes pwndbg
 end
 
-define init-gef
+define init-gef-original
 source ~/.gef-a85368fc771dcbb4db2b41818781e182845015b9.py
 end
-document init-gef
-Initializes gef
+document init-gef-original
+Initializes gef original
+end
+
+define init-gef-bata
+source ~/Git/gef/.gdbinit-gef.py
+end
+document init-gef-bata
+Initializes gef by bata24
 end
