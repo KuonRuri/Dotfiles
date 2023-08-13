@@ -128,7 +128,6 @@ on_source = 'ddc.vim'
 repo = 'vim-denops/denops.vim'
 on_source = ['ddc.vim', 'denops-popup-preview.vim']
 
-
 [[plugins]]
 repo = 'previm/previm'
 on_command = 'PrevimOpen'
@@ -144,13 +143,6 @@ on_event = 'InsertEnter'
 [[plugins]]
 repo = 'dstein64/vim-startuptime'
 on_command = 'StartupTime'
-
-[[plugins]]
-repo = 'matsui54/denops-popup-preview.vim'
-on_event = 'InsertEnter'
-hook_post_source = '''
-call popup_preview#enable()
-'''
 
 [[plugins]]
 repo = 'ray-x/lsp_signature.nvim'
