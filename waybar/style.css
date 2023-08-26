@@ -86,10 +86,10 @@ button:hover {
 #tray,
 #mode,
 #idle_inhibitor,
-#scratchpad,
-#mpd {
+#scratchpad {
     padding: 0 10px;
     color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 #window,
@@ -107,7 +107,7 @@ button:hover {
     margin-right: 0;
 }
 
-#clock {
+/*#clock {
     background-color: #64727D;
 }
 
@@ -184,12 +184,6 @@ label:focus {
 
 #wireplumber.muted {
     background-color: #f53c3c;
-}
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
 }
 
 #custom-media.custom-spotify {
@@ -277,4 +271,4 @@ label:focus {
 
 #scratchpad.empty {
 	background-color: transparent;
-}
+}*/
