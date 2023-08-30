@@ -22,7 +22,7 @@ set $menu "rofi -show combi -modes combi -combi-modes window,drun,run -icon-them
 
 ### Appearance
 # window corner radius in px
-corner_radius 10
+corner_radius 0
 
 # Window background blur
 blur enable
@@ -42,6 +42,16 @@ dim_inactive_colors.urgent #900000FF
 
 # Move minimized windows into Scratchpad (enable|disable)
 scratchpad_minimize disable
+
+default_border none
+default_floating_border none
+font pango:monospace 0
+titlebar_padding 1
+titlebar_border_thickness 0
+
+gaps inner 20
+#gaps horizontal -5
+gaps vertical -5
 
 ### Output configuration
 #
@@ -181,7 +191,7 @@ output * bg ~/Pictures/Archive/WideMiku.jpg fill
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    bindsym $mod+p fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
@@ -228,7 +238,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym Mod1+semicolon exec rofi -modi "clipboard:greenclip print" -show clipboard
+bindsym $mod+semicolon exec "rofi-copyq"
 
 #
 # Status Bar:
@@ -258,4 +268,4 @@ exec --no-startup-id copyq
 exec --no-startup-id fcitx5
 exec --no-startup-id mako
 exec --no-startup-id nm-applet
-
+exec swayidle -w timeout 9000 'swaylock -f' timeout 9000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'

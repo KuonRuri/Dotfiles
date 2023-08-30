@@ -61,3 +61,6 @@ require("toggleterm").setup{
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
