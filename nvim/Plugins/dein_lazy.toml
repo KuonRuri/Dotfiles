@@ -181,3 +181,21 @@ EOF
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
 on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'akinsho/toggleterm.nvim'
+on_command = 'ToggleTerm'
+hook_add = '''
+nnoremap <C-t> :ToggleTerm<CR>
+'''
+hook_post_source = '''
+lua << EOF
+require("toggleterm").setup{
+	open_mapping = "<C-t>",
+	start_in_insert = true,
+	insert_mappings = true,
+	terminal_mappings = true,
+	direction = "horizontal"
+}
+EOF
+'''

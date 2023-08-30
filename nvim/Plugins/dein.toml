@@ -9,6 +9,27 @@ colorscheme iceberg
 '''
 
 [[plugins]]
+repo = 'junegunn/fzf.vim'
+hook_add = '''
+nnoremap <C-b> :Buffers<CR>
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+hook_add = '''
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+highlight = {
+	enable = true,
+	},
+}
+EOF
+'''
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+[[plugins]]
 repo = 'neovim/nvim-lspconfig'
 
 [[plugins]]
@@ -25,42 +46,10 @@ hook_add = '''
 lua << EOF
 require("mason-lspconfig").setup_handlers {
   function (server_name)
-    require("lspconfig")[server_name].setup {
-      on_attach = on_attach
-    }
+	require("lspconfig")[server_name].setup {
+	  on_attach = on_attach
+	}
   end,
 }
 EOF
 '''
-
-[[plugins]]
-repo = 'junegunn/fzf.vim'
-
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-hook_add = '''
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-highlight = {
-	enable = true,
-	},
-}
-EOF
-'''
-
-[[plugins]]
-repo = 'akinsho/toggleterm.nvim'
-hook_add = '''
-lua << EOF
-require("toggleterm").setup{
-	open_mapping = "<C-t>",
-	start_in_insert = true,
-	insert_mappings = true,
-	terminal_mappings = true,
-	direction = "horizontal"
-}
-EOF
-'''
-
-[[plugins]]
-repo = 'vim-denops/denops.vim'
