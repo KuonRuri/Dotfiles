@@ -269,4 +269,8 @@ exec --no-startup-id copyq
 exec --no-startup-id fcitx5
 exec --no-startup-id mako
 exec --no-startup-id nm-applet
-exec swayidle -w timeout 9000 'swaylock -f' timeout 9000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+exec swayidle -w \
+timeout 600 'swaylock -f -c 000000' \
+timeout 601 'swaymsg "output * power off"' \
+resume 'swaymsg "output * power on"' \
+before-sleep 'swaylock -f -c 000000' \
