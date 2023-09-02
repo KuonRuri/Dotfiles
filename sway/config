@@ -238,7 +238,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bindsym $mod+semicolon exec "rofi-copyq"
+bindsym $mod+semicolon exec "copyq show"
 
 #
 # Status Bar:
@@ -264,6 +264,7 @@ bar {
 
 include /etc/sway/config.d/*
 
+exec --no-startup-id light-locker
 exec --no-startup-id copyq
 exec --no-startup-id fcitx5
 exec --no-startup-id mako
