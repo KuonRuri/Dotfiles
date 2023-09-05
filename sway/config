@@ -18,7 +18,7 @@ set $term kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu "rofi -show combi -modes combi -combi-modes window,drun,run -icon-theme Papirus -show-icons"
+set $menu "rofi -show combi -modes combi -combi-modes drun,window,run -icon-theme Papirus -show-icons"
 
 ### Appearance
 # window corner radius in px
@@ -45,7 +45,7 @@ scratchpad_minimize disable
 
 default_border none
 default_floating_border none
-font pango:monospace 0
+font Cica 10
 titlebar_padding 1
 titlebar_border_thickness 0
 
@@ -176,6 +176,10 @@ output * bg ~/Pictures/Archive/WideMiku.jpg fill
 	bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 	bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
+# Backlight config
+	bindsym XF86MonBrightnessUp exec --no-startup-id sudo light -A 5
+	bindsym XF86MonBrightnessDown exec --no-startup-id sudo light -U 5
+
 #
 # Layout stuff:
 #
@@ -264,13 +268,40 @@ bar {
 
 include /etc/sway/config.d/*
 
+set $locker "swaylock \
+	--clock \
+	--indicator \
+	--indicator-radius 100 \
+	--indicator-thickness 7 \
+	--effect-blur 7x5 \
+	--effect-vignette 0.5:0.5 \
+	--ring-color 1d50a2 \
+	--key-hl-color a0d8ef \
+	--line-color 00000000 \
+	--inside-color 393e4f \
+	--separator-color 00000000 \
+	--text-color a0d8ef \
+	--grace 2 \
+	--fade-in 0.1 \
+	--image /home/kuonruri/Pictures/Archive/YukiMiku.jpg \
+	--scaling fill"
+
+bindsym $mod+Shift+Escape exec $locker
+
+#exec --no-startup-id eval $(ssh-agent -c)
 exec --no-startup-id light-locker
 exec --no-startup-id copyq
 exec --no-startup-id fcitx5
 exec --no-startup-id mako
 exec --no-startup-id nm-applet
-exec swayidle -w \
-timeout 600 'swaylock -f -c 000000' \
-timeout 601 'swaymsg "output * power off"' \
-resume 'swaymsg "output * power on"' \
-before-sleep 'swaylock -f -c 000000' \
+exec --no-startup-id xss-lock -- $locker
+exec --no-startup-id /bin/sh ~/.config/sway/bin/birdtray.sh
+exec --no-startup-id discord --start-minimized
+exec --no-startup-id swayidle \
+timeout 300 "sudo light -U 10" \
+resume "sudo light -A 10" \
+timeout 600 "sudo light -U 10" \
+resume "sudo light -A 10" \
+timeout 900 "sudo light -O && sudo light -N" \
+resume "sudo light -I" \
+timeout 1800 "systemctl suspend"
