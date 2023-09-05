@@ -3,6 +3,7 @@ if status is-interactive
 end
 
 abbr ls 'ls -al'
+abbr se 'sudoedit'
 abbr ga 'git add . && git commit && git rev-parse --abbrev-ref HEAD | xargs git push origin'
 abbr gaa 'git add .'
 abbr gc 'git commit'
