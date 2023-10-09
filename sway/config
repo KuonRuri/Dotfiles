@@ -57,6 +57,8 @@ gaps vertical -5
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg ~/Pictures/Archive/WideMiku.jpg fill
+exec xrandr --setprovideroutputsource modesetting NVIDIA-0
+exec xrandr --auto
 #
 # Example configuration:
 #
@@ -171,10 +173,10 @@ output * bg ~/Pictures/Archive/WideMiku.jpg fill
 
 
 # Volume config
-	bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 0 toggle
-	bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-	bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-	bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+	bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SINK@ toggle
+	bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+	bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+	bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute #DEFAULT_SINK toggle
 
 # Backlight config
 	bindsym XF86MonBrightnessUp exec --no-startup-id sudo light -A 5
@@ -244,6 +246,10 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+semicolon exec "copyq show"
 
+bindsym $mod+Shift+apostrophe exec grimshot --notify save window $HOME/Pictures/Archive/screenshot_$(date "+%y%m%d%H%M%S").png
+bindsym $mod+Shift+slash exec grimshot --notify save output $HOME/Pictures/Archive/screenshot_$(date "+%y%m%d%H%M%S").png
+bindsym $mod+Shift+semicolon exec grimshot --notify save area $HOME/Pictures/Archive/screenshot_$(date "+%y%m%d%H%M%S").png
+
 #
 # Status Bar:
 #
@@ -268,7 +274,7 @@ bar {
 
 include /etc/sway/config.d/*
 
-set $locker "swaylock \
+set $locker '"swaylock \
 	--clock \
 	--indicator \
 	--indicator-radius 100 \
@@ -284,24 +290,23 @@ set $locker "swaylock \
 	--grace 2 \
 	--fade-in 0.1 \
 	--image /home/kuonruri/Pictures/Archive/YukiMiku.jpg \
-	--scaling fill"
+	--scaling fill"'
 
 bindsym $mod+Shift+Escape exec $locker
 
+for_window [app_id="com.github.hluk.copyq"] floating enable
+
 #exec --no-startup-id eval $(ssh-agent -c)
-exec --no-startup-id light-locker
+exec --no-startup-id xss-lock -- $locker
 exec --no-startup-id copyq
 exec --no-startup-id fcitx5
 exec --no-startup-id mako
 exec --no-startup-id nm-applet
-exec --no-startup-id xss-lock -- $locker
 exec --no-startup-id /bin/sh ~/.config/sway/bin/birdtray.sh
 exec --no-startup-id discord --start-minimized
 exec --no-startup-id swayidle \
-timeout 300 "sudo light -U 10" \
-resume "sudo light -A 10" \
-timeout 600 "sudo light -U 10" \
-resume "sudo light -A 10" \
-timeout 900 "sudo light -O && sudo light -N" \
+timeout 300 "sudo light -O && sudo light -U 10" \
 resume "sudo light -I" \
+timeout 600 "sudo light -U 10" \
+timeout 900 "sudo light -N" \
 timeout 1800 "systemctl suspend"

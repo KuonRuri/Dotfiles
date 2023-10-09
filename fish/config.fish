@@ -28,6 +28,8 @@ function fish_hybrid_key_bindings --description \
 end
 set -g fish_key_bindings fish_hybrid_key_bindings
 
+[ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
+
 # Start X at login
 if status --is-login
     if test -z "$DISPLAY" -a $XDG_VTNR = 1
