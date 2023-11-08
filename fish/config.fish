@@ -1,5 +1,7 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+	if test $TERM = "xterm-kitty"
+		exec tmux new-session -A -s main
+	end
 end
 
 abbr ls 'ls -al'
@@ -29,3 +31,4 @@ end
 set -g fish_key_bindings fish_hybrid_key_bindings
 
 [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
+
