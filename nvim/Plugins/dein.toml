@@ -11,7 +11,7 @@ colorscheme iceberg
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
-nnoremap <C-b> :Buffers<CR>
+nnoremap <C-l> :Buffers<CR>
 '''
 
 [[plugins]]
@@ -19,9 +19,15 @@ repo = 'nvim-treesitter/nvim-treesitter'
 hook_add = '''
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-highlight = {
-	enable = true,
+	highlight = {
+		enable = true,
+		disable = {
+			"cpp",
+		}
 	},
+	indent = {
+		enable = false,
+	}
 }
 EOF
 '''
@@ -30,26 +36,32 @@ EOF
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]
-repo = 'neovim/nvim-lspconfig'
-
-[[plugins]]
 repo = 'williamboman/mason.nvim'
-hook_add = '''
-lua << EOF
-require("mason").setup()
-EOF
-'''
 
 [[plugins]]
 repo = 'williamboman/mason-lspconfig.nvim'
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
 hook_add = '''
 lua << EOF
-require("mason-lspconfig").setup_handlers {
-  function (server_name)
-	require("lspconfig")[server_name].setup {
-	  on_attach = on_attach
-	}
-  end,
+local handlers = {
+	function (server_name)
+		require("lspconfig")[server_name].setup {
+		}
+	end,
+
+	["clangd"] = function() 
+		local lspconfig = require("lspconfig")
+		lspconfig.clangd.setup {
+			cmd = {
+				"clangd",
+				"--enable-config"
+			}
+		}
+	end,
 }
+require("mason").setup()
+require("mason-lspconfig").setup({ handlers = handlers })
 EOF
 '''

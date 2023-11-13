@@ -20,6 +20,9 @@ abbr dr 'docker rm -f'
 abbr de 'docker exec'
 abbr ds 'docker run'
 abbr dt 'docker stop'
+abbr cpc 'g++ main.cpp -std=c++14 -I /usr/include/ac-library -g -fsanitize=undefined,address -D_GLIBCXX_DEBUG'
+abbr ot 'g++ main.cpp -std=c++14 -I /usr/include/ac-library -g -fsanitize=undefined,address -D_GLIBCXX_DEBUG && oj t'
+abbr ac 'acc s -s -- -y'
 
 function fish_hybrid_key_bindings --description \
 "Vi-style bindings that inherit emacs-style bindings in all modes"

@@ -18,3 +18,4 @@
 !/mako/**
 !/hypr/**
 !/ranger/**
+!/clangd/**
