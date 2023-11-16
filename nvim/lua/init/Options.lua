@@ -17,3 +17,4 @@ opt.hlsearch = false
 opt.shell = "fish"
 opt.splitbelow = true
 opt.splitright = true
+opt.foldmethod = "marker"

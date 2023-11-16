@@ -1,3 +1,4 @@
 CompileFlags:
   Add: 
     - "--include-directory=/usr/include/ac-library"
+    - "-Wall"
