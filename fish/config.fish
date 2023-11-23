@@ -20,8 +20,8 @@ abbr dr 'docker rm -f'
 abbr de 'docker exec'
 abbr ds 'docker run'
 abbr dt 'docker stop'
-abbr cpc 'g++-12 -std=gnu++20 -O2 -Wall -Wextra -mtune=native -march=native -fconstexpr-depth=2147483647 -fconstexpr-loop-limit=2147483647 -fconstexpr-ops-limit=2147483647 -lgmpxx -lgmp -I /usr/include/ac-library -g -D_GLIBCXX_DEBUG main.cpp'
-abbr ot 'g++-12 -std=gnu++20 -O2 -Wall -Wextra -mtune=native -march=native -fconstexpr-depth=2147483647 -fconstexpr-loop-limit=2147483647 -fconstexpr-ops-limit=2147483647 -lgmpxx -lgmp -I /usr/include/ac-library -g -D_GLIBCXX_DEBUG main.cpp && oj t'
+abbr cpc 'g++-12 -std=gnu++23 -O2 -Wall -Wextra -mtune=native -march=native -fconstexpr-depth=2147483647 -fconstexpr-loop-limit=2147483647 -fconstexpr-ops-limit=2147483647 -lgmpxx -lgmp -I /usr/include/ac-library -g -D_GLIBCXX_DEBUG main.cpp'
+abbr ot 'g++-12 -std=gnu++23 -O2 -Wall -Wextra -mtune=native -march=native -fconstexpr-depth=2147483647 -fconstexpr-loop-limit=2147483647 -fconstexpr-ops-limit=2147483647 -lgmpxx -lgmp -I /usr/include/ac-library -g -D_GLIBCXX_DEBUG main.cpp && oj t'
 abbr ac 'acc s -s -- --yes --wait=0'
 
 function fish_hybrid_key_bindings --description \
