@@ -1,7 +1,7 @@
 // {{{
 #include <bits/stdc++.h>
 #include <atcoder/all>
-#define rep(i, n) for (long long i = 0; i < (long long)(n); ++i)
+#define rep(i, n) for (unsigned long long i = 0; i < (unsigned long long)(n); ++i)
 using namespace std;
 using namespace atcoder;
 using uint = unsigned int;
@@ -17,6 +17,8 @@ using vvi = vector<vector<int>>;
 using vvl = vector<vector<long long>>;
 using vvu = vector<vector<unsigned long long>>;
 using vvui = vector<vector<unsigned int>>;
+using vvc = vector<vector<char>>;
+using vvb = vector<vector<bool>>;
 using pii = pair<int, int>;
 using pll = pair<long long, long long>;
 using puu = pair<unsigned long long, unsigned long long>;
@@ -154,6 +156,42 @@ namespace kuonruri {
 		}
 		return ans;
 	}
+
+	template <class T>
+	class SumVec {
+		public:
+			SumVec(const vector<T>& init_vec) : sum_vec(init_vec.size() + 1, 0) {
+				for (size_t i = 1; i < sum_vec.size(); ++i) sum_vec[i] = sum_vec[i - 1] + init_vec[i - 1];
+			}
+
+			T sum_range(size_t begin, size_t last) {
+				return sum_vec[last + 1] - sum_vec[begin];
+			}
+
+		private:
+			vector<T> sum_vec;
+	};
+
+	template <class T>
+	class SumVecVec {
+		public:
+			SumVecVec(const vector<vector<T>>& init_vec) : sum_vec(init_vec.size() + 1, vector<T>(init_vec[0].size() + 1)) {
+				for (size_t i = 1; i < sum_vec.size(); ++i) {
+					for (size_t j = 1; j < sum_vec[0].size(); ++j) sum_vec[i][j] = sum_vec[i - 1][j] + init_vec[i - 1][j - 1];
+				}
+				for (size_t i = 1; i < sum_vec[0].size(); ++i) {
+					for (size_t j = 1; j < sum_vec.size(); ++j) sum_vec[j][i] += sum_vec[j][i - 1];
+				}
+			}
+
+			T sum_range(pair<size_t, size_t> begin, pair<size_t, size_t> last) {
+				return sum_vec[last.first + 1][last.second + 1] - sum_vec[begin.first][last.second + 1]
+					- sum_vec[last.first + 1][begin.second] + sum_vec[begin.first][begin.second];
+			}
+
+		private:
+			vector<vector<T>> sum_vec;
+	};
 
 	class UnionFind {
 		public:
