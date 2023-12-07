@@ -4,7 +4,7 @@
 #define rep(i, n) for (int i = 0; i < (int)(n); ++i)
 #define repp(i, s, n) for (int i = (int)(s); i < (int)(n); ++i)
 #define itr(i) i.begin(), i.end()
-#define debug(i) cerr << #i << ": " << i << endl;
+#define unused __attribute__((unused))
 using namespace std;
 using namespace atcoder;
 template <class T>
@@ -20,6 +20,7 @@ using vc = vector<char>;
 using vb = vector<bool>;
 using vpii = vector<pair<int, int>>;
 using vpuu = vector<pair<unsigned long long, unsigned long long>>;
+using vpll = vector<pair<long long, long long>>;
 using vpic = vector<pair<int, char>>;
 using vpis = vector<pair<int, string>>;
 using vpcc = vector<pair<char, char>>;
@@ -32,6 +33,7 @@ using vvc = vector<vector<char>>;
 using vvb = vector<vector<bool>>;
 using vvpii = vector<vector<pair<int, int>>>;
 using vvpuu = vector<vector<pair<unsigned long long, unsigned long long>>>;
+using vvpll = vector<vector<pair<long long, long long>>>;
 using pii = pair<int, int>;
 using pll = pair<long long, long long>;
 using puu = pair<unsigned long long, unsigned long long>;
@@ -61,31 +63,92 @@ const char el = '\n';
 
 namespace kuonruri {
 
+#ifndef ONLINE_JUDGE
+	template <class T>
+		void debug(const T &a, const string &str = "Debug") {
+			cerr << str << ": " << a << "\n\n";
+		}
+	template <class A, class B>
+		void debug(const pair<A, B> &a, const string &str = "Debug") {
+			cerr << str << ": " << a.first << ' ' << a.second << "\n\n";
+		}
+	template <class T>
+		void debug(const vector<T> &a, const string &str = "Debug") {
+			for (int i = 0; i < (int)a.size(); ++i) {
+				cerr << str << '[' << i << ']' << ": " << a[i] << '\n';
+			}
+			cerr << '\n';
+		}
+	template <class A, class B>
+		void debug(const vector<pair<A, B>> &a, const string &str = "Debug") {
+			for (int i = 0; i < (int)a.size(); ++i) {
+				cerr << str << '[' << i << ']' << ": " << a[i].first << ' ' << a[i].second << '\n';
+			}
+			cerr << '\n';
+		}
+	template <class T>
+		void debug(const vector<vector<T>> &a, const string &str = "Debug") {
+			for (int i = 0; i < (int)a.size(); ++i) {
+				cerr << str << '[' << i << ']' << ':';
+				for (int j = 0; j < (int)a[i].size; ++j) {
+					cerr << ' ' << a[i][j];
+				}
+				cerr << '\n';
+			}
+			cerr << '\n';
+		}
+#else
+	template <class T>
+		void debug(unused const T &a, unused const string &str = "Debug") {
+		}
+#endif
+
 	template <class T>
 		void in(T &n) {
 			cin >> n;
 		}
 	template <class A, class B>
-		void in(std::vector<pair<A, B>> &a) {
+		void in(vector<pair<A, B>> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) cin >> a[i].first >> a[i].second;
 		}
 	template <class T>
-		void in(std::vector<T> &a) {
+		void in(vector<T> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) cin >> a[i];
 		}
 	template <class A, class B>
-		void in(std::vector<std::vector<pair<A, B>>> &a) {
+		void in(vector<vector<pair<A, B>>> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) {
-				for (int j = 0; j < a[i].size(); ++i) cin >> a[i][j].first >> a[i][j].second;
+				for (int j = 0; j < (int)a[i].size(); ++j) cin >> a[i][j].first >> a[i][j].second;
 			}
 		}
 	template <class T>
-		void in(std::vector<std::vector<T>> &a) {
+		void in(vector<vector<T>> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) {
 				for (int j = 0; j < a[i].size(); ++i) cin >> a[i][j];
 			}
 		}
+	template <class T>
+		void in(set<T> &a, const int n) {
+			for (int i = 0; i < n; ++i) {
+				T tmp;
+				cin >> tmp;
+				a.insert(tmp);
+			}
+		}
+	template <class T>
+		void in(map<T, int> &a, const int n) {
+			for (int i = 0; i < n; ++i) {
+				T tmp;
+				cin >> tmp;
+				if (a.count(tmp)) ++a[tmp];
+				else a[tmp] = 1;
+			}
+		}
 
+	template <class T>
+		void out(const T &a) {
+			cout << a << '\n';
+		}
 	template <class A, class B>
 		void out(std::vector<pair<A, B>> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) cout << a[i].first << ' ' << a[i].second << '\n';
@@ -215,7 +278,6 @@ namespace kuonruri {
 		if (n != 1) ans.push_back({n, 1});
 		return ans;
 	}
-
 
 	// 最長部分増加列の長さ(Nlog(N))
 	unsigned long long LISSolve(vector<unsigned long long> a) {
