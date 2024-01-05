@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/ddc.vim'
 on_event = ['InsertEnter', 'CmdlineEnter']
-depends = ['nvim-lspconfig', 'mason.nvim', 'mason-lspconfig.nvim', 'ddc-ui-pum', 'ddc-source-nvim-lsp', 'pum.vim']
+depends = ['nvim-lspconfig', 'mason.nvim', 'mason-lspconfig.nvim', 'ddc-ui-pum', 'ddc-source-lsp', 'pum.vim']
 hook_post_source = '''
 	call ddc#custom#patch_global({
 	\	'ui': 'pum',
@@ -11,9 +11,9 @@ hook_post_source = '''
 	\			'matchers': ['matcher_head'],
 	\			'sorters': ['sorter_rank']
 	\		},
-	\		'nvim-lsp': {
-	\			'mark': 'L',
-	\			'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+	\		nvim-lsp: {
+	\			mark: 'L',
+	\			forceCompletionPattern: '\.\w*|:\w*|->\w*'
 	\		}, 
 	\		'around': {
 	\			'mark': 'A'
@@ -22,6 +22,13 @@ hook_post_source = '''
 	\			'mark': 'S',
 	\			'matchers': ['skkeleton'],
 	\			'sorters':[]
+	\		},
+	\	},
+	\	'sourceParams: #{
+	\		nvim-lsp: #{
+	\			enableResolveItem: v:true,
+    \			enableAdditionalTextEdit: v:true,
+    \			confirmBehavior: 'replace',
 	\		},
 	\	},
 	\	'autoCompleteEvents': [
@@ -81,7 +88,7 @@ repo = 'Shougo/ddc-ui-pum'
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-source-nvim-lsp'
+repo = 'Shougo/ddc-source-lsp'
 on_source = ['ddc.vim', 'denops-popup-preview.vim']
 hook_post_source = '''
 lua << EOF
@@ -199,3 +206,30 @@ require("toggleterm").setup{
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+on_event = ['FocusLost', 'CursorHold']
+hook_add = '''
+nnoremap <C-l> :Buffers<CR>
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+on_event = ['FocusLost', 'CursorHold']
+hook_post_source = '''
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+	highlight = {
+		enable = true,
+		disable = {
+			"cpp",
+		}
+	},
+	indent = {
+		enable = false,
+	}
+}
+EOF
+'''
+

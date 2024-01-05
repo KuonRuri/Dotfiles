@@ -9,30 +9,6 @@ colorscheme iceberg
 '''
 
 [[plugins]]
-repo = 'junegunn/fzf.vim'
-hook_add = '''
-nnoremap <C-l> :Buffers<CR>
-'''
-
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-hook_add = '''
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-	highlight = {
-		enable = true,
-		disable = {
-			"cpp",
-		}
-	},
-	indent = {
-		enable = false,
-	}
-}
-EOF
-'''
-
-[[plugins]]
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]

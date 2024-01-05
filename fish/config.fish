@@ -4,7 +4,7 @@ if status is-interactive
 	end
 end
 
-abbr ls 'ls -al'
+abbr ls 'eza -al'
 abbr se 'sudoedit'
 abbr ga 'git add . && git commit && git rev-parse --abbrev-ref HEAD | xargs git push origin'
 abbr gaa 'git add .'
@@ -36,3 +36,14 @@ set -g fish_key_bindings fish_hybrid_key_bindings
 
 [ -f /usr/share/autojump/autojump.fish ]; and source /usr/share/autojump/autojump.fish
 
+# pip fish completion start
+function __fish_complete_pip
+    set -lx COMP_WORDS (commandline -o) ""
+    set -lx COMP_CWORD ( \
+        math (contains -i -- (commandline -t) $COMP_WORDS)-1 \
+    )
+    set -lx PIP_AUTO_COMPLETE 1
+    string split \  -- (eval $COMP_WORDS[1])
+end
+complete -fa "(__fish_complete_pip)" -c pip3
+# pip fish completion end

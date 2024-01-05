@@ -1,59 +1,71 @@
 // {{{
+//####################################################################################################//
+//####################################################################################################//
+//############################################# KuonRuri #############################################//
+//####################################################################################################//
+//####################################################################################################//
 #include <bits/stdc++.h>
 #include <atcoder/all>
+#include <boost/multiprecision/cpp_dec_float.hpp>
+#include <boost/multiprecision/cpp_int.hpp>
 #define rep(i, n) for (int i = 0; i < (int)(n); ++i)
 #define repp(i, s, n) for (int i = (int)(s); i < (int)(n); ++i)
 #define itr(i) i.begin(), i.end()
 #define unused __attribute__((unused))
+namespace bm = boost::multiprecision;
 using namespace std;
 using namespace atcoder;
 template <class T>
 using ve = vector<T>;
-using uint = unsigned int;
+using ui = unsigned int;
 using ll = long long;
-using ull = unsigned long long;
-using vi = vector<int>;
-using vui = vector<unsigned int>;
-using vl = vector<long long>;
-using vu = vector<unsigned long long>;
-using vc = vector<char>;
-using vb = vector<bool>;
-using vpii = vector<pair<int, int>>;
-using vpuu = vector<pair<unsigned long long, unsigned long long>>;
-using vpll = vector<pair<long long, long long>>;
-using vpic = vector<pair<int, char>>;
-using vpis = vector<pair<int, string>>;
-using vpcc = vector<pair<char, char>>;
-using vpss = vector<pair<string, string>>;
-using vvi = vector<vector<int>>;
-using vvl = vector<vector<long long>>;
-using vvu = vector<vector<unsigned long long>>;
-using vvui = vector<vector<unsigned int>>;
-using vvc = vector<vector<char>>;
-using vvb = vector<vector<bool>>;
-using vvpii = vector<vector<pair<int, int>>>;
-using vvpuu = vector<vector<pair<unsigned long long, unsigned long long>>>;
-using vvpll = vector<vector<pair<long long, long long>>>;
+using ul = unsigned long long;
+using bi = bm::cpp_int;
+using bf = bm::number<bm::cpp_dec_float<1024>>;
 using pii = pair<int, int>;
-using pll = pair<long long, long long>;
-using puu = pair<unsigned long long, unsigned long long>;
+using pll = pair<ll, ll>;
+using puu = pair<ul, ul>;
 using pic = pair<int, char>;
 using pis = pair<int, string>;
 using pcc = pair<char, char>;
 using pss = pair<string, string>;
+using vi = vector<int>;
+using vui = vector<ui>;
+using vl = vector<ll>;
+using vu = vector<ul>;
+using vc = vector<char>;
+using vb = vector<bool>;
+using vbi = vector<bi>;
+using vbf = vector<bf>;
+using vpii = vector<pii>;
+using vpuu = vector<puu>;
+using vpll = vector<pll>;
+using vpic = vector<pic>;
+using vpis = vector<pis>;
+using vpcc = vector<pcc>;
+using vpss = vector<pss>;
+using vvi = vector<vi>;
+using vvl = vector<vl>;
+using vvu = vector<vu>;
+using vvui = vector<vui>;
+using vvc = vector<vc>;
+using vvb = vector<vb>;
+using vvpii = vector<vpii>;
+using vvpuu = vector<vpuu>;
+using vvpll = vector<vpll>;
 using si = set<int>;
-using sui = set<unsigned long>;
-using su = set<unsigned long long>;
-using sl = set<long long>;
+using sui = set<ui>;
+using su = set<ul>;
+using sl = set<ll>;
 using sc = set<char>;
 using ss = set<string>;
 using mii = map<int, int>;
-using muu = map<unsigned long long, unsigned long long>;
+using muu = map<ul, ul>;
 using mic = map<int, char>;
 using mis = map<int, string>;
-using mivi = map<int, vector<int>>;
-using mivu = map<int, vector<unsigned long long>>;
-using muvu = map<unsigned long long, vector<unsigned long long>>;
+using mivi = map<int, vi>;
+using mivu = map<int, vu>;
+using muvu = map<ul, vu>;
 using mint = modint;
 using m9int = modint998244353;
 using m1int = modint1000000007;
@@ -65,32 +77,32 @@ namespace kuonruri {
 
 #ifndef ONLINE_JUDGE
 	template <class T>
-		void debug(const T &a, const string &str = "Debug") {
+		inline void debug(const T &a, const string &str = "Debug") {
 			cerr << str << ": " << a << "\n\n";
 		}
 	template <class A, class B>
-		void debug(const pair<A, B> &a, const string &str = "Debug") {
+		inline void debug(const pair<A, B> &a, const string &str = "Debug") {
 			cerr << str << ": " << a.first << ' ' << a.second << "\n\n";
 		}
 	template <class T>
-		void debug(const vector<T> &a, const string &str = "Debug") {
+		inline void debug(const vector<T> &a, const string &str = "Debug") {
 			for (int i = 0; i < (int)a.size(); ++i) {
 				cerr << str << '[' << i << ']' << ": " << a[i] << '\n';
 			}
 			cerr << '\n';
 		}
 	template <class A, class B>
-		void debug(const vector<pair<A, B>> &a, const string &str = "Debug") {
+		inline void debug(const vector<pair<A, B>> &a, const string &str = "Debug") {
 			for (int i = 0; i < (int)a.size(); ++i) {
 				cerr << str << '[' << i << ']' << ": " << a[i].first << ' ' << a[i].second << '\n';
 			}
 			cerr << '\n';
 		}
 	template <class T>
-		void debug(const vector<vector<T>> &a, const string &str = "Debug") {
+		inline void debug(const vector<vector<T>> &a, const string &str = "Debug") {
 			for (int i = 0; i < (int)a.size(); ++i) {
 				cerr << str << '[' << i << ']' << ':';
-				for (int j = 0; j < (int)a[i].size; ++j) {
+				for (int j = 0; j < (int)a[i].size(); ++j) {
 					cerr << ' ' << a[i][j];
 				}
 				cerr << '\n';
@@ -99,36 +111,40 @@ namespace kuonruri {
 		}
 #else
 	template <class T>
-		void debug(unused const T &a, unused const string &str = "Debug") {
+		inline void debug(unused const T &a, unused const string &str = "Debug") {
 		}
 #endif
 
 	template <class T>
-		void in(T &n) {
+		inline void in(T &n) {
 			cin >> n;
 		}
 	template <class A, class B>
-		void in(vector<pair<A, B>> &a) {
-			for (int i = 0; i < (int)a.size(); ++i) cin >> a[i].first >> a[i].second;
+		inline void in(pair<A, B> &n) {
+			cin >> n.first >> n.second;
 		}
 	template <class T>
-		void in(vector<T> &a) {
+		inline void in(vector<T> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) cin >> a[i];
 		}
 	template <class A, class B>
-		void in(vector<vector<pair<A, B>>> &a) {
+		inline void in(vector<pair<A, B>> &a) {
+			for (int i = 0; i < (int)a.size(); ++i) cin >> a[i].first >> a[i].second;
+		}
+	template <class A, class B>
+		inline void in(vector<vector<pair<A, B>>> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) {
 				for (int j = 0; j < (int)a[i].size(); ++j) cin >> a[i][j].first >> a[i][j].second;
 			}
 		}
 	template <class T>
-		void in(vector<vector<T>> &a) {
+		inline void in(vector<vector<T>> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) {
-				for (int j = 0; j < a[i].size(); ++i) cin >> a[i][j];
+				for (int j = 0; j < (int)a[i].size(); ++j) cin >> a[i][j];
 			}
 		}
 	template <class T>
-		void in(set<T> &a, const int n) {
+		inline void in(set<T> &a, const int n) {
 			for (int i = 0; i < n; ++i) {
 				T tmp;
 				cin >> tmp;
@@ -136,7 +152,7 @@ namespace kuonruri {
 			}
 		}
 	template <class T>
-		void in(map<T, int> &a, const int n) {
+		inline void in(map<T, int> &a, const int n) {
 			for (int i = 0; i < n; ++i) {
 				T tmp;
 				cin >> tmp;
@@ -146,28 +162,31 @@ namespace kuonruri {
 		}
 
 	template <class T>
-		void out(const T &a) {
+		inline void out(const T &a) {
 			cout << a << '\n';
 		}
 	template <class A, class B>
-		void out(std::vector<pair<A, B>> &a) {
+		inline void out(const pair<A, B> &a) {
+			cout << a.first << ' ' << a.second << '\n';
+		}
+	template <class A, class B>
+		inline void out(std::vector<pair<A, B>> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) cout << a[i].first << ' ' << a[i].second << '\n';
 		}
 	template <class T>
-		void out(std::vector<T> &a) {
+		inline void out(vector<T> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) {
-				if (i != (int)a.size() - 1) cout << a[i] << ' ';
-				else cout << a[i] << '\n';
+				cout << a[i] << '\n';
 			}
 		}
 	template <class A, class B>
-		void out(std::vector<std::vector<pair<A, B>>> &a) {
+		inline void out(std::vector<std::vector<pair<A, B>>> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) {
 				for (int j = 0; j < a[i].size(); ++i) cout << a[i][j].first << ' ' << a[i][j].second << '\n';
 			}
 		}
 	template <class T>
-		void out(std::vector<std::vector<T>> &a) {
+		inline void out(std::vector<std::vector<T>> &a) {
 			for (int i = 0; i < (int)a.size(); ++i) {
 				out(a[i]);
 			}
@@ -299,40 +318,76 @@ namespace kuonruri {
 	}
 
 	template <class T>
-	class SumVec {
-		public:
-			SumVec(const vector<T>& init_vec) : sum_vec(init_vec.size() + 1, 0) {
-				for (size_t i = 1; i < sum_vec.size(); ++i) sum_vec[i] = sum_vec[i - 1] + init_vec[i - 1];
-			}
+		class SumVec {
+			public:
+				SumVec(const vector<T>& init_vec) : sum_vec(init_vec.size() + 1, 0) {
+					for (size_t i = 1; i < sum_vec.size(); ++i) sum_vec[i] = sum_vec[i - 1] + init_vec[i - 1];
+				}
 
-			T sum_range(size_t begin, size_t last) {
-				return sum_vec[last + 1] - sum_vec[begin];
-			}
+				T sum_range(size_t begin, size_t last) {
+					return sum_vec[last + 1] - sum_vec[begin];
+				}
 
-		private:
-			vector<T> sum_vec;
-	};
+			private:
+				vector<T> sum_vec;
+		};
 
 	template <class T>
-	class SumVecVec {
-		public:
-			SumVecVec(const vector<vector<T>>& init_vec) : sum_vec(init_vec.size() + 1, vector<T>(init_vec[0].size() + 1)) {
-				for (size_t i = 1; i < sum_vec.size(); ++i) {
-					for (size_t j = 1; j < sum_vec[0].size(); ++j) sum_vec[i][j] = sum_vec[i - 1][j] + init_vec[i - 1][j - 1];
+		class SumVecVec {
+			public:
+				SumVecVec(const vector<vector<T>> &init_vec) : sum_vec(init_vec.size() + 1, vector<T>(init_vec[0].size() + 1)) {
+					for (size_t i = 1; i < sum_vec.size(); ++i) {
+						for (size_t j = 1; j < sum_vec[0].size(); ++j) sum_vec[i][j] = sum_vec[i - 1][j] + 
+							init_vec[i - 1][j - 1];
+					}
+					for (size_t i = 1; i < sum_vec[0].size(); ++i) {
+						for (size_t j = 1; j < sum_vec.size(); ++j) sum_vec[j][i] += sum_vec[j][i - 1];
+					}
 				}
-				for (size_t i = 1; i < sum_vec[0].size(); ++i) {
-					for (size_t j = 1; j < sum_vec.size(); ++j) sum_vec[j][i] += sum_vec[j][i - 1];
+
+				T sum_range(pair<size_t, size_t> begin, pair<size_t, size_t> last) {
+					return sum_vec[last.first + 1][last.second + 1] - sum_vec[begin.first][last.second + 1]
+						- sum_vec[last.first + 1][begin.second] + sum_vec[begin.first][begin.second];
 				}
-			}
 
-			T sum_range(pair<size_t, size_t> begin, pair<size_t, size_t> last) {
-				return sum_vec[last.first + 1][last.second + 1] - sum_vec[begin.first][last.second + 1]
-					- sum_vec[last.first + 1][begin.second] + sum_vec[begin.first][begin.second];
-			}
+			private:
+				vector<vector<T>> sum_vec;
+		};
+	template <class T>
+		class Power {
+			public:
+				explicit Power(const int n, const T root) : a(n + 1) {
+					a[0] = 1;
+					for (int i = 1; i <= n; ++i) {
+						a[i] = a[i - 1] * root;
+					}
+				}
+				
+				T value(const int n) {
+					return a[n];
+				}
+			private:
+				vector<T> a;
+		};
 
-		private:
-			vector<vector<T>> sum_vec;
-	};
+	template <class T>
+		class HashVecVec {
+			public:
+				explicit HashVecVec(const string &s, const T b = 100) : a(s.size() + 1), po(s.size(), b) {
+					a[0] = 0;
+					for (int i = 0; i < (int)s.size(); ++i) {
+						a[i + 1] = a[i] * b + s.at(i) - 'A' + 1;
+					}
+				}
+
+				T hash_range(const int begin, const int rbegin) {
+					return a[rbegin + 1] - po.value(rbegin - begin + 1) * a[begin];
+				}
+
+			private:
+				vector<T> a;
+				Power<T> po;
+		};
 
 	class UnionFind {
 		public:
@@ -340,7 +395,7 @@ namespace kuonruri {
 			explicit UnionFind(size_t NodeCountSum) : Parent(NodeCountSum, -1) {}
 
 			// NodeAとNodeBに指定された頂点が同じグループか判定
-			bool connect(long long NodeA, long long NodeB) {
+			bool isSame(long long NodeA, long long NodeB) {
 				return root(NodeA) == root(NodeB);
 			}
 
