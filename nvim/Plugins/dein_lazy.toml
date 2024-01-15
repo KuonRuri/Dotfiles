@@ -1,123 +1,6 @@
 [[plugins]]
-repo = 'Shougo/ddc.vim'
-on_event = ['InsertEnter', 'CmdlineEnter']
-depends = ['nvim-lspconfig', 'mason.nvim', 'mason-lspconfig.nvim', 'ddc-ui-pum', 'ddc-source-lsp', 'pum.vim']
-hook_post_source = '''
-	call ddc#custom#patch_global({
-	\	'ui': 'pum',
-	\	'sources': ['nvim-lsp', 'skkeleton', 'around'],
-	\	'sourceOptions': { 
-	\		'_': {
-	\			'matchers': ['matcher_head'],
-	\			'sorters': ['sorter_rank']
-	\		},
-	\		nvim-lsp: {
-	\			mark: 'L',
-	\			forceCompletionPattern: '\.\w*|:\w*|->\w*'
-	\		}, 
-	\		'around': {
-	\			'mark': 'A'
-	\		},
-	\		'skkeleton': {
-	\			'mark': 'S',
-	\			'matchers': ['skkeleton'],
-	\			'sorters':[]
-	\		},
-	\	},
-	\	'sourceParams: #{
-	\		nvim-lsp: #{
-	\			enableResolveItem: v:true,
-    \			enableAdditionalTextEdit: v:true,
-    \			confirmBehavior: 'replace',
-	\		},
-	\	},
-	\	'autoCompleteEvents': [
-	\		'InsertEnter', 'TextChangedI', 'TextChangedP', 'CmdlineChanged',
-	\	],
-	\	'cmdlineSources': {
-	\		':': ['cmdline', 'cmdline-history', 'around']
-	\	},
-	\	})
-	inoremap <silent><expr> <TAB>
-		\ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
-		\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-		\ '<TAB>' : ddc#map#manual_complete()
-	inoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
-	inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
-	inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
-	inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
-	inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
-
-	nnoremap :       <Cmd>call CommandlinePre()<CR>:
-	function! CommandlinePre() abort
-		cnoremap <Tab>   <Cmd>call pum#map#insert_relative(+1)<CR>
-		cnoremap <S-Tab> <Cmd>call pum#map#insert_relative(-1)<CR>
-		cnoremap <C-n>   <Cmd>call pum#map#insert_relative(+1)<CR>
-		cnoremap <C-p>   <Cmd>call pum#map#insert_relative(-1)<CR>
-		cnoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
-		cnoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
-		autocmd User DDCCmdlineLeave ++once call CommandlinePost()
-		" Enable command line completion for the buffer
-		call ddc#enable_cmdline_completion()
-	endfunction
-	function! CommandlinePost() abort
-		silent! cunmap <Tab>
-		silent! cunmap <S-Tab>
-		silent! cunmap <C-n>
-		silent! cunmap <C-p>
-		silent! cunmap <C-y>
-		silent! cunmap <C-e>
-	endfunction
-	call ddc#enable()
-'''
-
-[[plugins]]
-repo = 'Shougo/ddc-around'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-matcher_head'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-sorter_rank'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-ui-pum'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-source-lsp'
-on_source = ['ddc.vim', 'denops-popup-preview.vim']
-hook_post_source = '''
-lua << EOF
-local capabilities = require("ddc_nvim_lsp").make_client_capabilities()
-require("lspconfig").denols.setup({
-  capabilities = capabilities,
-})
-EOF
-'''
-
-[[plugins]]
-repo = 'Shougo/ddc-source-cmdline'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-source-cmdline-history'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-source-around'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/neco-vim'
-on_source = 'ddc.vim'
-
-[[plugins]]
 repo = 'vim-skk/skkeleton'
-on_source = 'ddc.vim'
+on_source = 'nvim-cmp'
 hook_post_source = '''
 imap <C-j> <Plug>(skkeleton-toggle)
 cmap <C-j> <Plug>(skkeleton-toggle)
@@ -128,8 +11,8 @@ call skkeleton#config({
 '''
 
 [[plugins]]
-repo = 'Shougo/pum.vim'
-on_source = ['ddc.vim', 'ddc-ui-pum']
+repo = 'rinx/cmp-skkeleton'
+on_source = 'nvim-cmp'
 
 [[plugins]]
 repo = 'previm/previm'
@@ -233,3 +116,81 @@ require'nvim-treesitter.configs'.setup {
 EOF
 '''
 
+[[plugins]]
+repo = 'hrsh7th/cmp-buffer'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-path'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-cmdline'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'L3MON4D3/LuaSnip'
+on_source = 'nvim-cmp'
+build = "make install_jsregexp"
+
+[[plugins]]
+repo = 'rafamadriz/friendly-snippets'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'saadparwaiz1/cmp_luasnip'
+on_source = 'nvim-cmp'
+
+[[plugins]]
+repo = 'onsails/lspkind.nvim'
+on_source = 'nvim-cmp'
+
+[[plugins]] 
+repo = 'hrsh7th/nvim-cmp'
+on_event = 'InsertEnter'
+hook_post_source = '''
+lua << EOF
+local cmp = require('cmp')
+local lspkind = require("lspkind")
+cmp.setup({
+	snippet = {
+		expand = function(args)
+		require'luasnip'.lsp_expand(args.body)
+	end,
+	},
+	sources = {
+		{ name = 'nvim_lsp' },
+		{ name = 'luasnip' },
+		{ name = 'buffer' },
+		{ name = 'path' },
+		{ name = 'skkeleton' },
+	},
+	mapping = cmp.mapping.preset.insert({
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<S-Tab>"] = cmp.mapping.select_prev_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<Tab>"] = cmp.mapping.select_next_item(),
+		['<C-l>'] = cmp.mapping.complete(),
+		['<C-e>'] = cmp.mapping.abort(),
+		["<C-k>"] = cmp.mapping.confirm { select = true },
+	}),
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = 'symbol',
+			maxwidth = 50,
+			ellipsis_char = '...',
+			before = function(entry, vim_item)
+				return vim_item
+			end,
+		}),
+	},
+	view = {
+		entries = 'native'
+	},
+	experimental = {
+		ghost_text = true,
+	},
+})
+vim.cmd([[imap <silent><expr> <C-k> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<C-k>']])
+EOF
+'''

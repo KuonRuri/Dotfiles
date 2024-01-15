@@ -25,13 +25,13 @@ if (vim.fn['dein#load_state'](dein_dir) == 1) then
 end
 
 -- plugin install check
-if (vim.fn['dein#check_install']() ~= 0) then
-  vim.fn['dein#install']()
-end
+-- if (vim.fn['dein#check_install']() ~= 0) then
+--   vim.fn['dein#install']()
+-- end
 
 -- plugin remove check
-local removed_plugins = vim.fn['dein#check_clean']()
-if vim.fn.len(removed_plugins) > 0 then
-  vim.fn.map(removed_plugins, "delete(v:val, 'rf')")
-  vim.fn['dein#recache_runtimepath']()
-end
+-- local removed_plugins = vim.fn['dein#check_clean']()
+-- if vim.fn.len(removed_plugins) > 0 then
+--   vim.fn.map(removed_plugins, "delete(v:val, 'rf')")
+--   vim.fn['dein#recache_runtimepath']()
+-- end
