@@ -9,7 +9,7 @@
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
 #define rep(i, n) for (int i = 0; i < (int)(n); ++i)
-#define repp(i, s, n) for (int i = (int)(s); i < (int)(n); ++i)
+#define repp(i, s, n) for (long long i = (long long)(s); i < (long long)(n); ++i)
 #define itr(i) i.begin(), i.end()
 #define unused __attribute__((unused))
 namespace bm = boost::multiprecision;
@@ -75,7 +75,7 @@ const char el = '\n';
 
 namespace kuonruri {
 
-#ifndef ONLINE_JUDGE
+#ifdef LOCAL_KR
 	template <class T>
 		inline void debug(const T &a, const string &str = "Debug") {
 			cerr << str << ": " << a << "\n\n";

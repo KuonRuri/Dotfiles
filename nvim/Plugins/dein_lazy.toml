@@ -5,9 +5,10 @@ hook_post_source = '''
 imap <C-j> <Plug>(skkeleton-toggle)
 cmap <C-j> <Plug>(skkeleton-toggle)
 call skkeleton#config({
-\	'globalJisyo': '/usr/share/skk/SKK-JISYO.L',
-\	'userJisyo': '~/.local/share/fcitx5/skk/user.dict'
-\})
+\	'globalDictionaries': ['/usr/share/skk/SKK-JISYO.L'],
+\	'userDictionaries': ['~/.local/share/fcitx5/skk/user.dict'],
+\	'debug': v:true
+\ })
 '''
 
 [[plugins]]
@@ -91,8 +92,13 @@ EOF
 '''
 
 [[plugins]]
+repo = 'junegunn/fzf'
+on_source = 'fzf.vim'
+on_build = 'fzf#install()'
+
+[[plugins]]
 repo = 'junegunn/fzf.vim'
-on_event = ['FocusLost', 'CursorHold']
+on_command = ['Buffers', 'Files', 'Rg']
 hook_add = '''
 nnoremap <C-l> :Buffers<CR>
 '''
@@ -155,8 +161,8 @@ local lspkind = require("lspkind")
 cmp.setup({
 	snippet = {
 		expand = function(args)
-		require'luasnip'.lsp_expand(args.body)
-	end,
+			require'luasnip'.lsp_expand(args.body)
+		end,
 	},
 	sources = {
 		{ name = 'nvim_lsp' },

@@ -4,7 +4,8 @@ if status is-interactive
 	end
 end
 
-abbr ls 'eza -al'
+abbr sl 'ls'
+abbr ls 'eza -al --icons=always'
 abbr se 'sudoedit'
 abbr ga 'git add . && git commit && git rev-parse --abbrev-ref HEAD | xargs git push origin'
 abbr gaa 'git add .'
@@ -20,9 +21,11 @@ abbr dr 'docker rm -f'
 abbr de 'docker exec'
 abbr ds 'docker run'
 abbr dt 'docker stop'
-abbr cpc 'g++-12 -std=gnu++23 -O2 -Wall -Wextra -mtune=native -march=native -fconstexpr-depth=2147483647 -fconstexpr-loop-limit=2147483647 -fconstexpr-ops-limit=2147483647 -lgmpxx -lgmp -I /usr/include/ac-library -g -D_GLIBCXX_DEBUG main.cpp'
-abbr ot 'g++-12 -std=gnu++23 -O2 -Wall -Wextra -mtune=native -march=native -fconstexpr-depth=2147483647 -fconstexpr-loop-limit=2147483647 -fconstexpr-ops-limit=2147483647 -lgmpxx -lgmp -I /usr/include/ac-library -g -D_GLIBCXX_DEBUG main.cpp && oj t'
+abbr cpc 'g++-12 -std=gnu++23 -O2 -Wall -Wextra -mtune=native -march=native -fconstexpr-depth=2147483647 -fconstexpr-loop-limit=2147483647 -fconstexpr-ops-limit=2147483647 -lgmpxx -lgmp -I /usr/include/ac-library -g -D_GLIBCXX_DEBUG -DLOCAL_KR main.cpp'
+abbr ot 'g++-12 -std=gnu++23 -O2 -Wall -Wextra -mtune=native -march=native -fconstexpr-depth=2147483647 -fconstexpr-loop-limit=2147483647 -fconstexpr-ops-limit=2147483647 -lgmpxx -lgmp -I /usr/include/ac-library -g -D_GLIBCXX_DEBUG -DLOCAL_KR main.cpp && oj t'
 abbr ac 'acc s -s -- --yes --wait=0'
+abbr jop 'cp main.cpp ~/Git/ac-library/ && cd ~/Git/ac-library/ && python ~/Git/ac-library/expander.py main.cpp && cd - && mv ~/Git/ac-library/combined.cpp .'
+abbr joc 'cp main.cpp ~/Git/ac-library/ && cd ~/Git/ac-library/ && python ~/Git/ac-library/expander.py main.cpp && cd - && mv ~/Git/ac-library/combined.cpp . && g++-12 -std=gnu++23 -O2 -Wall -Wextra -mtune=native -march=native -fconstexpr-depth=2147483647 -fconstexpr-loop-limit=2147483647 -fconstexpr-ops-limit=2147483647 -lgmpxx -lgmp -g -D_GLIBCXX_DEBUG -DLOCAL_KR combined.cpp'
 abbr less 'less -R'
 
 function fish_hybrid_key_bindings --description \
